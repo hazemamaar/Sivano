@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "939745192790",
+    "project_id": "sivano-aaa36",
+    "storage_bucket": "sivano-aaa36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939745192790:android:bd29e37588292f462184f7",
+        "android_client_info": {
+          "package_name": "com.android.sivano"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939745192790-mcsfg7fg7msuvl7t7hs60uk5njmcol5f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.sivano",
+            "certificate_hash": "48fb64a8f71f6acedec664a7d4f37edb1763fcfb"
+          }
+        },
+        {
+          "client_id": "939745192790-547kghmt7i1j57p60k71r3jo8mrjckql.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDeu1RKJEk337stYNKGg5hSNkKHCDjWec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939745192790-547kghmt7i1j57p60k71r3jo8mrjckql.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

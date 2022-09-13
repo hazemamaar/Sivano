@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.setup.OnBoardingFragment">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/onboard"
+        android:scaleType="fitXY"
+        />
+
+    <TextView
+        android:id="@+id/best"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/the_best"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/shop"/>
+
+    <TextView
+        android:id="@+id/shop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/on_shop"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_18ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/easier"
+        app:layout_constraintStart_toStartOf="parent"
+      />
+    <TextView
+        android:id="@+id/easier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/easier"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintBottom_toTopOf="@id/fav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <TextView
+        android:id="@+id/fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/fav"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintBottom_toTopOf="@id/start_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<!--    <com.skyfishjy.library.RippleBackground-->
+<!--        android:id="@+id/start_view"-->
+<!--        android:layout_width="@dimen/_130sdp"-->
+<!--           android:layout_height="@dimen/_130sdp"-->
+<!--            android:layout_marginBottom="@dimen/_25sdp"-->
+<!--        app:rb_color="@color/gray_white"-->
+<!--            app:rb_radius="70dp"-->
+<!--            app:rb_rippleAmount="4"-->
+<!--            app:rb_duration="3000"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:rb_scale="6">-->
+
+        <TextView
+            android:id="@+id/start_txt"
+            android:layout_width="@dimen/_85sdp"
+            android:layout_height="@dimen/_85sdp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/circle_btn"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Start"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_13ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="@dimen/_35sdp"
+            />
+<!--        </com.skyfishjy.library.RippleBackground>-->
+<!--        <TextView-->
+<!--        android:id="@+id/start_view"-->
+<!--        android:layout_width="@dimen/_85sdp"-->
+<!--        android:layout_height="@dimen/_85sdp"-->
+<!--        android:layout_marginBottom="@dimen/_25sdp"-->
+<!--        android:background="@drawable/circle_btn"-->
+<!--        android:fontFamily="@font/poppins_bold"-->
+<!--        android:gravity="center"-->
+<!--        android:text="Start"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textSize="@dimen/_13ssp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>

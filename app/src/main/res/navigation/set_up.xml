@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/set_up"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.android.sivano.ui.fragment.setup.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.android.sivano.ui.fragment.setup.OnBoardingFragment"
+        android:label="fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding" >
+        <action
+            android:id="@+id/action_onBoardingFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.android.sivano.ui.fragment.setup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.android.sivano.ui.fragment.setup.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_defaultActivity2"
+            app:destination="@id/defaultActivity2" />
+    </fragment>
+    <activity
+        android:id="@+id/defaultActivity2"
+        android:name="com.android.sivano.ui.activities.DefaultActivity"
+        android:label="activity_default"
+        tools:layout="@layout/activity_default" />
+</navigation>

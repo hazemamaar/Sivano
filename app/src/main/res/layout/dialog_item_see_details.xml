@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.app.SeeDetailsProductFragment"
+    android:background="@drawable/circle_dialoge"
+    >
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/product_Image"-->
+    <!--        android:layout_width="@dimen/_170sdp"-->
+    <!--        android:layout_height="@dimen/_170sdp"-->
+    <!--        android:layout_margin="5dp"-->
+    <!--        android:layout_marginTop="@dimen/_20sdp"-->
+    <!--        android:foregroundGravity="center"-->
+    <!--        android:scaleType="fitXY"-->
+    <!--        android:src="@drawable/testimage"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/product_Title"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="@dimen/_10sdp"-->
+    <!--        android:layout_marginTop="12dp"-->
+    <!--        android:layout_marginEnd="@dimen/_10sdp"-->
+    <!--        android:singleLine="true"-->
+    <!--        android:text="hazemamaarsgddklgsklsgdjgkdkgkskgsklklg"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="@dimen/_10ssp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.0"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/product_Image" />-->
+
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/linear_View"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="@dimen/_25sdp"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/product_Title">-->
+
+    <!--        <TextView-->
+    <!--            android:layout_width="@dimen/_200sdp"-->
+    <!--            android:layout_height="@dimen/_100sdp"-->
+    <!--            android:padding="10dp"-->
+    <!--            android:text="TextView3 in horizontal linear layout" />-->
+
+    <!--        <View-->
+    <!--            android:layout_width="@dimen/_1sdp"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginStart="@dimen/_5sdp"-->
+    <!--            android:background="@color/black" />-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="vertical">-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/price"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:layout_marginTop="@dimen/_7sdp"-->
+    <!--                android:fontFamily="@font/poppins_medium"-->
+    <!--                android:text="3520LE"-->
+    <!--                android:textColor="@color/black_app"-->
+    <!--                android:textSize="@dimen/_17ssp" />-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/old_price"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:layout_marginTop="@dimen/_7sdp"-->
+    <!--                android:fontFamily="@font/poppins"-->
+    <!--                android:text="3520LE"-->
+    <!--                android:textColor="@color/gray"-->
+    <!--                android:textSize="@dimen/_15ssp"-->
+    <!--                app:layout_constraintStart_toEndOf="@id/price"-->
+    <!--                app:layout_constraintTop_toBottomOf="@id/product_Title" />-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/save"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_gravity="center"-->
+    <!--                android:layout_marginTop="@dimen/_7sdp"-->
+    <!--                android:fontFamily="@font/poppins"-->
+    <!--                android:text="Save 30%"-->
+    <!--                android:textColor="#FF0000"-->
+    <!--                android:textSize="@dimen/_12ssp" />-->
+    <!--        </LinearLayout>-->
+
+    <!--    </LinearLayout>-->
+
+    <!--    <View-->
+    <!--        android:id="@+id/line2"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="1dp"-->
+    <!--        android:layout_marginTop="@dimen/_15sdp"-->
+    <!--        android:background="@color/gray"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/linear_View"-->
+
+    <!--        />-->
+
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/product_OverView"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_marginStart="@dimen/_8sdp"-->
+    <!--        android:layout_marginTop="@dimen/_20sdp"-->
+    <!--        android:fontFamily="@font/poppins_medium"-->
+    <!--        android:text="Product OverView."-->
+    <!--        android:textColor="@color/black_app"-->
+    <!--        android:textSize="@dimen/_15ssp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/line2" />-->
+
+    <!--    <kr.co.prnd.readmore.ReadMoreTextView-->
+    <!--        android:id="@+id/description"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="@dimen/_8sdp"-->
+    <!--        android:layout_marginTop="@dimen/_10sdp"-->
+    <!--        android:textColor="@color/gray"-->
+    <!--        android:textSize="@dimen/_10ssp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/product_OverView"-->
+    <!--        app:readMoreColor="@color/gray"-->
+    <!--        app:readMoreMaxLine="5"-->
+    <!--        app:readMoreText="…ReadMore"-->
+    <!--        tools:ignore="MissingClass" />-->
+
+    <!--    <androidx.cardview.widget.CardView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="@dimen/_45sdp"-->
+    <!--        android:layout_marginTop="@dimen/_10sdp"-->
+    <!--        android:layout_marginBottom="@dimen/_2sdp"-->
+    <!--        app:cardCornerRadius="@dimen/_5sdp"-->
+    <!--        app:cardElevation="@dimen/_7sdp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/description">-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:orientation="horizontal"-->
+    <!--            android:weightSum="2">-->
+
+    <!--            <com.google.android.material.button.MaterialButton-->
+    <!--                android:id="@+id/see_details_btn"-->
+    <!--                style="@style/button_style"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_margin="@dimen/_5sdp"-->
+    <!--                android:layout_marginStart="@dimen/_10sdp"-->
+    <!--                android:layout_marginEnd="@dimen/_10sdp"-->
+    <!--                android:layout_weight="1"-->
+    <!--                android:backgroundTint="@color/white"-->
+    <!--                android:padding="@dimen/_4sdp"-->
+    <!--                android:text="Add to cart"-->
+    <!--                android:textColor="@color/black_app"-->
+    <!--                android:textSize="@dimen/_12ssp"-->
+    <!--                app:strokeColor="@color/black_app"-->
+    <!--                app:strokeWidth="@dimen/_1sdp" />-->
+
+    <!--            <View-->
+    <!--                android:layout_width="@dimen/_1sdp"-->
+    <!--                android:layout_height="@dimen/_35sdp"-->
+    <!--                android:layout_gravity="center_vertical"-->
+    <!--                android:layout_marginStart="@dimen/_10sdp"-->
+    <!--                android:layout_marginEnd="@dimen/_10sdp"-->
+    <!--                android:background="@color/black" />-->
+
+    <!--            <com.google.android.material.button.MaterialButton-->
+    <!--                android:id="@+id/buy_now"-->
+    <!--                style="@style/button_style"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_margin="@dimen/_5sdp"-->
+    <!--                android:layout_marginStart="@dimen/_5sdp"-->
+    <!--                android:layout_marginEnd="@dimen/_10sdp"-->
+    <!--                android:layout_weight="1"-->
+    <!--                android:backgroundTint="@color/black"-->
+    <!--                android:padding="@dimen/_4sdp"-->
+    <!--                android:text="Buy Now"-->
+    <!--                android:textColor="@color/white"-->
+    <!--                android:textSize="@dimen/_12ssp"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toEndOf="@id/see_details_btn"-->
+    <!--                app:strokeColor="@color/black_app"-->
+    <!--                app:strokeWidth="@dimen/_1sdp" />-->
+    <!--        </LinearLayout>-->
+    <!--    </androidx.cardview.widget.CardView>-->
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/back_icon"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="@dimen/_5sdp"-->
+    <!--        android:background="@drawable/cart_circle"-->
+    <!--        android:padding="@dimen/_5sdp"-->
+    <!--        android:src="@drawable/ic_baseline_close_24"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <ImageView
+        android:id="@+id/product_Image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_170sdp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:foregroundGravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/testimage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/product_Title"
+        />
+
+    <TextView
+        android:id="@+id/product_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Name"
+        android:textColor="@color/read_more"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/product_Image" />
+
+    <TextView
+        android:id="@+id/product_discount_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/discount"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/product_Title" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:includeFontPadding="true"
+        android:text="$1000"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/product_Title" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/product_rating"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/_20sdp"-->
+<!--        android:drawablePadding="@dimen/_5sdp"-->
+<!--        android:fontFamily="@font/prompt_semibold"-->
+<!--        android:includeFontPadding="true"-->
+<!--        android:text="4.5"-->
+<!--        android:textColor="@color/color_shape"-->
+<!--        android:textSize="@dimen/_12ssp"-->
+<!--        app:drawableStartCompat="@drawable/star"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/product_price"-->
+<!--        app:layout_constraintStart_toEndOf="@id/product_discount_tv"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/product_name_tv" />-->
+
+    <TextView
+        android:id="@+id/description_tv_support"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="description"
+        android:textColor="@color/gray_white"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/product_discount_tv" />
+
+    <View
+        android:id="@+id/cicrle_view_support"
+        android:layout_width="@dimen/_8sdp"
+        android:layout_height="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/redheart"
+        app:layout_constraintEnd_toEndOf="@id/description_tv_support"
+        app:layout_constraintStart_toStartOf="@id/description_tv_support"
+        app:layout_constraintTop_toBottomOf="@id/description_tv_support" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins"
+        android:includeFontPadding="false"
+        android:lineSpacingExtra="@dimen/_2sdp"
+        android:maxLines="2"
+        android:textColor="@color/gray_white"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintTop_toBottomOf="@id/cicrle_view_support" />
+
+    <TextView
+        android:id="@+id/textReadMore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins"
+        android:includeFontPadding="false"
+        android:maxLines="4"
+        android:text="@string/read_more"
+        android:textColor="@color/read_more"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toStartOf="@id/description"
+        app:layout_constraintTop_toBottomOf="@id/description" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

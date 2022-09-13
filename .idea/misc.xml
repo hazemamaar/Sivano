@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/circle_btn.xml" value="0.2055" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/circle_dialoge.xml" value="0.2085" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/circlebackground.xml" value="0.2945" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/discount.xml" value="0.299" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/thumb_switch.xml" value="0.172" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/track_switch.xml" value="0.172" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/activity_default.xml" value="0.22" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/activity_main.xml" value="0.35104166666666664" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_blank.xml" value="0.35104166666666664" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_cart.xml" value="0.35104166666666664" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_category.xml" value="0.35104166666666664" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_favorites.xml" value="0.2" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_forgetten_password.xml" value="0.35104166666666664" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_on_boarding.xml" value="0.25" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_see_details_product.xml" value="0.33" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_sign_in.xml" value="0.22" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_sign_up.xml" value="0.35104166666666664" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_splash_screen.xml" value="0.23854166666666668" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_verification.xml" value="0.35104166666666664" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/include_back_icon.xml" value="0.22" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/item_banner_layout.xml" value="0.33697916666666666" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/item_category_layout.xml" value="0.35104166666666664" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/item_favorite_layout.xml" value="0.21822916666666667" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/item_product_layout.xml" value="0.33697916666666666" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/menu/bottom_nav_menu.xml" value="0.35104166666666664" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/menu/bottom_sheet_menu.xml" value="0.35104166666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

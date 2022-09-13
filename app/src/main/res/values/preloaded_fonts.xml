@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
+        <item>@font/aladin</item>
+        <item>@font/beth_ellen</item>
+        <item>@font/charmonman_bold</item>
+        <item>@font/poppins</item>
+        <item>@font/poppins_bold</item>
+        <item>@font/poppins_bold_italic</item>
+        <item>@font/poppins_medium</item>
+    </array>
+</resources>

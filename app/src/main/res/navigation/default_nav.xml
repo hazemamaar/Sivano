@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/default_nav"
+    app:startDestination="@id/homeFragment">
+
+    <activity
+        android:id="@+id/defaultActivity"
+        android:name="com.android.sivano.ui.activities.DefaultActivity"
+        android:label="activity_default"
+        tools:layout="@layout/activity_default" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.android.sivano.ui.fragment.app.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_seeDetailsProduct"
+            app:destination="@id/seeDetailsProduct" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.android.sivano.ui.fragment.app.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.android.sivano.ui.fragment.app.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.android.sivano.ui.fragment.app.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.android.sivano.ui.fragment.app.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/seeDetailsProduct"
+        android:name="com.android.sivano.ui.fragment.app.SeeDetailsProductFragment"
+        android:label="fragment_see_details_product"
+        tools:layout="@layout/dialog_item_see_details" >
+        <argument
+            android:name="product"
+            app:argType="com.android.sivano.model.Products" />
+    </fragment>
+</navigation>
