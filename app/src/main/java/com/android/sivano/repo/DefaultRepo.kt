@@ -10,4 +10,6 @@ class DefaultRepo @Inject constructor(private val apiService: ApiService){
     suspend fun addToFavorite(fav: Fav, token:String)=apiService.addToFavorite(auth=token, fav = fav)
     suspend fun getFavorites(token:String)=apiService.getFavorites(auth = token)
     suspend fun deleteFromFavorite(id: Int, token:String)=apiService.deleteFromFavorite(auth=token, id = id)
+    suspend fun addOrRemoveCart(fav: Fav, token:String)=apiService.addOrRemoveToCart(auth=token, fav = fav)
+    suspend fun  getAllCarts(token: String)=apiService.getCarts(auth = token)
 }

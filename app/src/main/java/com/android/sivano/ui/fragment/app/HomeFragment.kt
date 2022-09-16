@@ -5,17 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.android.sivano.R
 import com.android.sivano.common.dialog.CustomDialog
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.databinding.FragmentHomeBinding
-import com.android.sivano.model.AddFavoriteModel
+import com.android.sivano.model.AddorRemoveFavoriteDto
 import com.android.sivano.model.Fav
 import com.android.sivano.model.MyResponse
 import com.android.sivano.ui.adabters.BannersAdapter
@@ -41,7 +39,7 @@ class HomeFragment : Fragment() {
     lateinit var categoryRecyclerView: CategoryRecyclerView
     @Inject
     lateinit var productRecyclerView: ProductRecyclerView
-    var favresponse:List<MyResponse<AddFavoriteModel>> ?=null
+    var favresponse:List<MyResponse<AddorRemoveFavoriteDto>> ?=null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         homeViewMode.homePage(complexPreferences.getString("token"))
@@ -55,6 +53,18 @@ class HomeFragment : Fragment() {
 //            findNavController().navigate(
 //                R.id.action_homeFragment_to_seeDetailsProduct, bundle
 //            )
+        }
+        productRecyclerView.setAddToCartClickListener {
+            response->
+            val fav=Fav(response.id)
+            homeViewMode.addToCart(fav,complexPreferences.getString("token"))
+            homeViewMode.addOrRemoveCartMutableLiveData.observe(viewLifecycleOwner, Observer {
+                response->
+                if(response.data?.id!=0){
+                    toast("Done Add To Cart")
+                }
+            })
+
         }
         productRecyclerView.setOnImageHeartClickListener { response ->
             if(response.in_favorites) {

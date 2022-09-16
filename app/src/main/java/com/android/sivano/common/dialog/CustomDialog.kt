@@ -20,6 +20,7 @@ import androidx.core.view.isVisible
 import com.android.sivano.R
 import com.android.sivano.databinding.DialogItemSeeDetailsBinding
 import com.android.sivano.model.Products
+import com.android.sivano.ui.adabters.ViewPagerImageDetails
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 
@@ -30,7 +31,9 @@ object CustomDialog {
     fun showDialogDetails(
         context: Context,
         product: Products,
+
     ) {
+
         val dialogBuilder: AlertDialog.Builder =
             AlertDialog.Builder(context)
         val dialog: Dialog
@@ -54,12 +57,30 @@ object CustomDialog {
 
 
         bind.description.text=product.description
-        (product.price.toString()+"LE").also { bind.price.text = it }
+        (product.price.toString()+"LE").also{ bind.price.text = it }
 //        (product.old_price.toString()+"LE").also { bind.oldPrice.text = it }
 //        bind.oldPrice.paintFlags=
 //            bind.oldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-        Glide.with(context).load(product.image).into(bind.productImage)
+//        Glide.with(context).load(product.image).into(bind.productImage)
+        bind.backIcon.setOnClickListener {
+            dialog.dismiss()
+        }
+        bind.viewpager2Details.adapter=ViewPagerImageDetails(product.images)
         bind.productTitle.text=product.name
+        val textRedMoreValue = bind.textReadMore.text.toString()
+        bind.textReadMore.setOnClickListener(View.OnClickListener {
+            if (textRedMoreValue == context.getString(R.string.read_more)) {
+                bind.description.maxLines = Int.MAX_VALUE
+                bind.description.ellipsize = null
+                bind.textReadMore.text = context.getString(R.string.read_less)
+            } else {
+                bind.description.maxLines = 2
+                bind.description.ellipsize = TextUtils.TruncateAt.END
+                bind.textReadMore.text = context.getString(R.string.read_more)
+            }
+
+        })
+
 //        ("Save "+product.discount+"%").also { bind.save.text=it }
 //        glide.load(product.images[0]).into(bind.productImg)
 //        bind.productDiscountTv.text="${product.discountPercentage}%"

@@ -7,7 +7,6 @@
     tools:context=".ui.fragment.app.SeeDetailsProductFragment"
     android:background="@drawable/circle_dialoge"
     >
-
     <!--    <ImageView-->
     <!--        android:id="@+id/product_Image"-->
     <!--        android:layout_width="@dimen/_170sdp"-->
@@ -216,19 +215,29 @@
     <!--        android:src="@drawable/ic_baseline_close_24"-->
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
     <ImageView
-        android:id="@+id/product_Image"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_170sdp"
-        android:layout_margin="5dp"
+        android:id="@+id/back_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/cart_circle"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/ic_baseline_close_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager2_details"
+        android:layout_width="@dimen/_180sdp"
+        android:layout_height="@dimen/_150sdp"
+        android:layout_margin="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:foregroundGravity="center"
-        android:scaleType="fitXY"
         android:src="@drawable/testimage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_icon"
         app:layout_constraintBottom_toTopOf="@id/product_Title"
+        app:layout_constraintEnd_toEndOf="parent"
         />
 
     <TextView
@@ -242,15 +251,15 @@
         android:textColor="@color/read_more"
         android:textSize="@dimen/_15ssp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/product_Image" />
+        app:layout_constraintTop_toBottomOf="@+id/viewpager2_details" />
 
     <TextView
-        android:id="@+id/product_discount_tv"
+        android:id="@+id/discount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:background="@drawable/discount"
+        android:background="@drawable/ic_shape_new_price"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
         android:textColor="@color/white"
@@ -271,6 +280,7 @@
         android:textColor="@color/black"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/product_Title" />
 
 <!--    <TextView-->
@@ -295,13 +305,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_15sdp"
         android:fontFamily="@font/poppins_medium"
-        android:text="description"
+        android:text="Description"
         android:textColor="@color/gray_white"
         android:textSize="@dimen/_15ssp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/product_discount_tv" />
+        app:layout_constraintTop_toBottomOf="@id/discount" />
 
     <View
         android:id="@+id/cicrle_view_support"
@@ -341,7 +351,7 @@
         android:includeFontPadding="false"
         android:maxLines="4"
         android:text="@string/read_more"
-        android:textColor="@color/read_more"
+        android:textColor="@color/red_light"
         android:textSize="@dimen/_11ssp"
         app:layout_constraintStart_toStartOf="@id/description"
         app:layout_constraintTop_toBottomOf="@id/description" />

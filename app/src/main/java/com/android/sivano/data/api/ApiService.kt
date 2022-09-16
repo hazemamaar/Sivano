@@ -17,9 +17,13 @@ interface ApiService {
     @GET("categories")
     suspend fun categories(@Header("lang") lang:String="en"):MyResponse<CategoryModel>
     @POST("favorites")
-    suspend fun addToFavorite(@Body fav: Fav, @Header("lang") lang:String="en", @Header("Authorization") auth:String):MyResponse<AddFavoriteModel>
+    suspend fun addToFavorite(@Body fav: Fav, @Header("lang") lang:String="en", @Header("Authorization") auth:String):MyResponse<AddorRemoveFavoriteDto>
     @GET("favorites")
     suspend fun getFavorites(@Header("lang") lang:String="en",@Header("Authorization") auth:String):MyResponse<AllFavoriteProducts>
     @DELETE("favorites/{id}")
-    suspend fun deleteFromFavorite(@Path("id") id:Int,@Header("lang") lang:String="en",@Header("Authorization") auth:String):MyResponse<AddFavoriteModel>
+    suspend fun deleteFromFavorite(@Path("id") id:Int,@Header("lang") lang:String="en",@Header("Authorization") auth:String):MyResponse<AddorRemoveFavoriteDto>
+    @POST("carts")
+    suspend fun addOrRemoveToCart(@Body fav: Fav, @Header("lang") lang:String="en", @Header("Authorization") auth:String):MyResponse<AddCartDto>
+    @GET("carts")
+    suspend fun getCarts(@Header("lang") lang:String="en", @Header("Authorization") auth:String):MyResponse<GetCartsDto>
 }

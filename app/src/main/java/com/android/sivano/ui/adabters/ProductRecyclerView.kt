@@ -78,6 +78,9 @@ class ProductRecyclerView @Inject constructor() :
         holder.btnSeeDetails.setOnClickListener(View.OnClickListener {
             onButtonItemClickListener?.let { it(product) }
         })
+        holder.btnAddToCart.setOnClickListener(View.OnClickListener {
+            onAddToCartClickListener?.let { it(product) }
+        })
         if(dis==0) {
             holder.discount.visibility = View.GONE
             holder.oldPrice.visibility = View.GONE
@@ -95,10 +98,13 @@ class ProductRecyclerView @Inject constructor() :
     private var onItemClickListener: ((Products) -> Unit)? = null
     private var onButtonItemClickListener: ((Products) -> Unit)? = null
     private var onImageHeartClickListener: ((Products) -> Unit)? = null
+    private var onAddToCartClickListener: ((Products) -> Unit)? = null
     fun setOnItemClickListener(listener: (Products) -> Unit) {
         onItemClickListener = listener
     }
-
+    fun setAddToCartClickListener(listener: (Products) -> Unit) {
+        onAddToCartClickListener = listener
+    }
     fun setOnButtonSeeDetailsClickListener(listener: (Products) -> Unit) {
         onButtonItemClickListener = listener
     }

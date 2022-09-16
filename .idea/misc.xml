@@ -3,14 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/cart_circle.xml" value="0.294" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/circle_btn.xml" value="0.2055" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/circle_dialoge.xml" value="0.2085" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/circlebackground.xml" value="0.2945" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/discount.xml" value="0.299" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/ic_shape_new_price.xml" value="0.294" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/thumb_switch.xml" value="0.172" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/drawable/track_switch.xml" value="0.172" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/activity_default.xml" value="0.22" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/activity_main.xml" value="0.35104166666666664" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/dialog_item_see_details.xml" value="0.35104166666666664" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_blank.xml" value="0.35104166666666664" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_cart.xml" value="0.35104166666666664" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_category.xml" value="0.35104166666666664" />
@@ -25,9 +28,11 @@
         <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/fragment_verification.xml" value="0.35104166666666664" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/include_back_icon.xml" value="0.22" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/item_banner_layout.xml" value="0.33697916666666666" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/item_cat_layout.xml" value="0.35104166666666664" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/item_category_layout.xml" value="0.35104166666666664" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/item_favorite_layout.xml" value="0.21822916666666667" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/item_product_layout.xml" value="0.33697916666666666" />
+        <entry key="..\:/Android Task/Sivano/app/src/main/res/layout/item_viewpager_details.xml" value="0.35104166666666664" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/menu/bottom_nav_menu.xml" value="0.35104166666666664" />
         <entry key="..\:/Android Task/Sivano/app/src/main/res/menu/bottom_sheet_menu.xml" value="0.35104166666666664" />
       </map>

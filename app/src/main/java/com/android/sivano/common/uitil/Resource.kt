@@ -1,5 +1,7 @@
 package com.android.sivano.common.uitil
 
+import com.android.sivano.domin.model.GetAllCarts
+
 sealed class Resource<T>
     (
     val data: T? = null,

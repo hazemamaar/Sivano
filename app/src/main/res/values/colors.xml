@@ -24,5 +24,6 @@
     <color name="transparent_white">#40FFFFFF</color>
     <color name="transparent_white2">#D9FFFFFF</color>
 
+    <color name="red_light">#e82c4b</color>
     <color name="inputcolor">#EDEDF1</color>
 </resources>
