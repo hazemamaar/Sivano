@@ -1,6 +1,9 @@
-package com.android.sivano.model
+package com.android.sivano.domin.model
 
-data class Product(
+import android.os.Parcel
+import android.os.Parcelable
+
+data class ProductsHomePage(
     val description: String,
     val discount: Int,
     val id: Int,
@@ -9,6 +12,6 @@ data class Product(
     val in_cart: Boolean,
     val in_favorites: Boolean,
     val name: String,
-    val old_price: Int,
-    val price: Int
+    val old_price: Double,
+    val price: Double
 )

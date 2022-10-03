@@ -1,11 +1,8 @@
-package com.android.sivano.model
+package com.android.sivano.entities
 
-import com.google.gson.annotations.SerializedName
-
-data class AllFavoriteProducts(
+data class CategoryModel(
     val current_page: Int,
-    @SerializedName("data")
-    val favoriteData: List<FavoriteData>,
+    val data: List<CategoriesDto>,
     val first_page_url: String,
     val from: Int,
     val last_page: Int,

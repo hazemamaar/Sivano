@@ -1,8 +1,11 @@
 package com.android.sivano.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.android.sivano.R
@@ -29,5 +32,8 @@ class DefaultActivity : AppCompatActivity() {
            navController.navigate(R.id.homeFragment)
         })
     }
+    override fun onBackPressed() {
+        super.onBackPressed()
 
+    }
 }

@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.sivano.model.*
+import com.android.sivano.entities.*
 import com.android.sivano.repo.DefaultRepo
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.domin.model.AddOrRemoveCartModel
@@ -22,7 +22,7 @@ class HomePageViewModel @Inject constructor(
     ,private val defaultRepo: DefaultRepo
     ,private val addOrRemoveCartUseCase: AddOrRemoveCartUseCase
 ) : ViewModel() {
-    var homeMutableLiveData: MutableLiveData<Resource<MyResponse<HomePage>>> = MutableLiveData()
+    var homeMutableLiveData: MutableLiveData<Resource<MyResponse<HomePageDto>>> = MutableLiveData()
     var categoriesMutableLiveData: MutableLiveData<Resource<MyResponse<CategoryModel>>> = MutableLiveData()
     var addFavoriteMutableLiveData: MutableLiveData<Resource<MyResponse<AddorRemoveFavoriteDto>>> = MutableLiveData()
     var addOrRemoveCartMutableLiveData: MutableLiveData<Resource<AddOrRemoveCartModel>> = MutableLiveData()
@@ -71,7 +71,7 @@ class HomePageViewModel @Inject constructor(
         categoriesMutableLiveData.postValue(handleCategories(response))
     }
 
-    private fun handleHomePage(response: MyResponse<HomePage>): Resource<MyResponse<HomePage>> {
+    private fun handleHomePage(response: MyResponse<HomePageDto>): Resource<MyResponse<HomePageDto>> {
         if (response.status) {
             response?.let { homePageResponse ->
                 return Resource.Success(homePageResponse)

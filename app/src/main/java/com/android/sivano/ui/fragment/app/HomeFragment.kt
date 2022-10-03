@@ -13,9 +13,9 @@ import com.android.sivano.R
 import com.android.sivano.common.dialog.CustomDialog
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.databinding.FragmentHomeBinding
-import com.android.sivano.model.AddorRemoveFavoriteDto
-import com.android.sivano.model.Fav
-import com.android.sivano.model.MyResponse
+import com.android.sivano.entities.AddorRemoveFavoriteDto
+import com.android.sivano.entities.Fav
+import com.android.sivano.entities.MyResponse
 import com.android.sivano.ui.adabters.BannersAdapter
 import com.android.sivano.ui.adabters.CategoryRecyclerView
 import com.android.sivano.ui.adabters.ProductRecyclerView

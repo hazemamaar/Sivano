@@ -1,4 +1,4 @@
-package com.android.sivano.model
+package com.android.sivano.entities
 
 data class GetCartsDto(
     val cart_items: List<CartItemDto>,

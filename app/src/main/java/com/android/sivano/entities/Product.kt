@@ -1,4 +1,4 @@
-package com.android.sivano.domin.model
+package com.android.sivano.entities
 
 data class Product(
     val description: String,

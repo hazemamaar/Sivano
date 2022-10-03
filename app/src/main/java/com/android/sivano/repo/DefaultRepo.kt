@@ -1,7 +1,7 @@
 package com.android.sivano.repo
 
-import com.android.sivano.data.api.ApiService
-import com.android.sivano.model.Fav
+import com.android.sivano.data.remote.ApiService
+import com.android.sivano.entities.Fav
 import javax.inject.Inject
 
 class DefaultRepo @Inject constructor(private val apiService: ApiService){

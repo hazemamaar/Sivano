@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.android.sivano.R
 import com.android.sivano.databinding.FragmentSignUpBinding
 import com.android.sivano.common.helpers.MyValidation
-import com.android.sivano.model.UserInfo
+import com.android.sivano.entities.UserInfoDto
 import com.android.sivano.ui.viewmodel.AuthViewModel
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.common.uitil.toast
@@ -42,12 +42,8 @@ class SignUpFragment : Fragment() {
                             is Resource.Success -> {
                                 // hideProgress()
                                 response.data?.let { response ->
-                                    if(response.status){
-                                         toast("Done")
-                                          findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
-                                    }else{
-                                        toast(response.message)
-                                    }
+                                    toast("Done")
+                                    findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
                                 }
                             }
                             is Resource.Error -> {
@@ -73,7 +69,7 @@ class SignUpFragment : Fragment() {
 
    private fun register() {
         authViewModel.register(
-            UserInfo(
+            UserInfoDto(
                 email = binding.inputTextEmail.text.toString(),
                 name = binding.inputTextName.text.toString(),
                 password = binding.inputTextPassword.text.toString(),
@@ -83,7 +79,6 @@ class SignUpFragment : Fragment() {
             )
         )
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

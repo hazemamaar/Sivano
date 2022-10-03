@@ -55,12 +55,12 @@ class ConnectionLiveData(context: Context) : LiveData<Boolean>() {
                             Log.d(TAG, "onAvailable: adding network. ${network}")
                             validNetworks.add(network)
                             checkValidNetworks()
+                            koko()
                         }
                     }
                 }
             }
         }
-
         /*
           If the callback was registered with registerNetworkCallback() it will be called for each network which no longer satisfies the criteria of the callback.
           Source: https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback#onLost(android.net.Network)
@@ -72,5 +72,9 @@ class ConnectionLiveData(context: Context) : LiveData<Boolean>() {
         }
 
     }
+    fun koko(){
+
+    }
 
 }
+

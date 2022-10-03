@@ -41,11 +41,8 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/seeDetailsProduct"
-        android:name="com.android.sivano.ui.fragment.app.SeeDetailsProductFragment"
         android:label="fragment_see_details_product"
         tools:layout="@layout/dialog_item_see_details" >
-        <argument
-            android:name="product"
-            app:argType="com.android.sivano.model.Products" />
+
     </fragment>
 </navigation>

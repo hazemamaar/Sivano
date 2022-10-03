@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sivano.R
-import com.android.sivano.model.Categories
+import com.android.sivano.entities.CategoriesDto
 import com.google.android.material.button.MaterialButton
 import javax.inject.Inject
 
@@ -15,16 +15,16 @@ class CategoryRecyclerView @Inject constructor() : RecyclerView.Adapter<Category
     inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var btnCategory=itemView.findViewById<MaterialButton>(R.id.category_btn)
     }
-    public var categoryList: List<Categories>
+    public var categoryList: List<CategoriesDto>
         get() = differ.currentList
         set(value) = differ.submitList(value)
 
-    private val differCallBack = object : DiffUtil.ItemCallback<Categories>() {
-        override fun areItemsTheSame(oldItem: Categories, newItem: Categories): Boolean {
+    private val differCallBack = object : DiffUtil.ItemCallback<CategoriesDto>() {
+        override fun areItemsTheSame(oldItem: CategoriesDto, newItem: CategoriesDto): Boolean {
             return oldItem.hashCode()== newItem.hashCode()
         }
 
-        override fun areContentsTheSame(oldItem: Categories, newItem: Categories): Boolean {
+        override fun areContentsTheSame(oldItem: CategoriesDto, newItem: CategoriesDto): Boolean {
             return oldItem == newItem
         }
     }
@@ -39,7 +39,7 @@ class CategoryRecyclerView @Inject constructor() : RecyclerView.Adapter<Category
             )
         )
     }
-    private var onItemClickListener: ((Categories) -> Unit)? = null
+    private var onItemClickListener: ((CategoriesDto) -> Unit)? = null
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val category = categoryList[position]
@@ -73,7 +73,7 @@ class CategoryRecyclerView @Inject constructor() : RecyclerView.Adapter<Category
     }
     override fun getItemCount() = categoryList.size
 
-    fun setOnItemClickListener(listener: (Categories) -> Unit) {
+    fun setOnItemClickListener(listener: (CategoriesDto) -> Unit) {
         onItemClickListener = listener
     }
 }

@@ -12,7 +12,7 @@ import com.android.sivano.R
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.databinding.FragmentSignInBinding
 import com.android.sivano.common.helpers.MyValidation
-import com.android.sivano.model.UserInfo
+import com.android.sivano.entities.UserInfoDto
 import com.android.sivano.ui.viewmodel.AuthViewModel
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.common.uitil.toast
@@ -66,12 +66,12 @@ class SignInFragment : Fragment() {
                         }
                     })
             }
-            findNavController().navigate(R.id.action_signInFragment_to_defaultActivity2)
+//            findNavController().navigate(R.id.action_signInFragment_to_defaultActivity2)
         })
     }
     private fun login() {
         authViewModel.login(
-            UserInfo(
+            UserInfoDto(
                 email = binding.inputTextEmail.text.toString(),
                 password = binding.inputTextPassword.text.toString(),
                 phone = "12345678924",

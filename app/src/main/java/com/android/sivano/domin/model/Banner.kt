@@ -1,7 +1,8 @@
 package com.android.sivano.domin.model
 
-data class ProductCart(
+data class Banner(
+    val category: Any,
     val id: Int,
     val image: String,
-    val price: Double
+    val product: Any
 )

@@ -21,8 +21,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
         checkInternetConnection(this@MainActivity) {
             Log.i(TAG, "onCreate: newtWorkAvailable $it")
         }

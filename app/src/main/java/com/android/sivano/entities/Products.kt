@@ -1,4 +1,4 @@
-package com.android.sivano.model
+package com.android.sivano.entities
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -15,11 +15,3 @@ data class Products(
     val old_price: Double,
     val price: Double
 )
-    :Parcelable {
-    override fun describeContents(): Int {
-        return 0
-    }
-    override fun writeToParcel(dest: Parcel?, flags: Int) {
-
-    }
-}

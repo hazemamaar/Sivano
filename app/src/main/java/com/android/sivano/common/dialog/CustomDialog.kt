@@ -1,38 +1,25 @@
 package com.android.sivano.common.dialog
 
-import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
-import android.content.ContextParams
-import android.content.Intent
 import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.PixelFormat
 import android.graphics.drawable.ColorDrawable
-import android.provider.Settings
 import android.text.TextUtils
 import android.view.*
-import android.view.View.GONE
-import android.widget.TextView
-import androidx.core.view.isVisible
 import com.android.sivano.R
 import com.android.sivano.databinding.DialogItemSeeDetailsBinding
-import com.android.sivano.model.Products
+import com.android.sivano.entities.Products
 import com.android.sivano.ui.adabters.ViewPagerImageDetails
-import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestManager
-
 
 
 object CustomDialog {
 
-    fun showDialogDetails(
+    fun  showDialogDetails(
         context: Context,
         product: Products,
 
-    ) {
+        ) {
 
         val dialogBuilder: AlertDialog.Builder =
             AlertDialog.Builder(context)

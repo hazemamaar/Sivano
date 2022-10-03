@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sivano.R
-import com.android.sivano.model.GetCartsDto
+import com.android.sivano.entities.GetCartsDto
 
 class CartsRecyclerView : RecyclerView.Adapter<CartsRecyclerView.CartsViewHolder>() {
 

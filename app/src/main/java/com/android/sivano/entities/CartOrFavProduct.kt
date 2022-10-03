@@ -1,4 +1,4 @@
-package com.android.sivano.model
+package com.android.sivano.entities
 
 data class CartOrFavProduct(
     val description: String,
@@ -6,6 +6,6 @@ data class CartOrFavProduct(
     val id: Int,
     val image: String,
     val name: String,
-    val old_price: Int,
-    val price: Int
+    val old_price: Double,
+    val price: Double
 )

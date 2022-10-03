@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             app:layout_anchorGravity="center"
+            app:defaultNavHost="true"
             app:navGraph="@navigation/default_nav" />
     </androidx.core.widget.NestedScrollView>
 
@@ -39,7 +40,6 @@
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:background="@android:color/transparent"
             app:menu="@menu/bottom_nav_menu" />
 

@@ -140,6 +140,7 @@
                 app:layout_constraintStart_toEndOf="@id/see_details_btn"
                 app:layout_constraintTop_toBottomOf="@id/price"
                 app:strokeColor="@color/black_app"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:strokeWidth="@dimen/_1sdp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

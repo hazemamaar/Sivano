@@ -1,19 +1,18 @@
-package com.android.sivano.data.api
+package com.android.sivano.data.remote
 
-import com.android.sivano.model.*
-import retrofit2.Response
+import com.android.sivano.entities.*
 import retrofit2.http.*
 
 interface ApiService {
 
     @POST("register")
-    suspend fun register(@Body userInfo:UserInfo, @Header("lang") lang:String="ar"): MyResponse<UserResponse>
+    suspend fun register(@Body userInfoDto:UserInfoDto): MyResponse<UserResponse>
     @POST("login")
-    suspend fun login(@Body userInfo: UserInfo,@Header("lang") lang:String="ar"):MyResponse<UserResponse>
+    suspend fun login(@Body userInfoDto: UserInfoDto):MyResponse<UserResponse>
 //    @POST("verify-email")
 ////    suspend fun verifyEmail(@Body email:String,@Header("lang") lang: String="ar"):MyResponse<>
     @GET("home")
-    suspend fun homePage(@Header("lang") lang:String="en",@Header("Authorization") auth:String):MyResponse<HomePage>
+    suspend fun homePage(@Header("lang") lang:String="en",@Header("Authorization") auth:String):MyResponse<HomePageDto>
     @GET("categories")
     suspend fun categories(@Header("lang") lang:String="en"):MyResponse<CategoryModel>
     @POST("favorites")

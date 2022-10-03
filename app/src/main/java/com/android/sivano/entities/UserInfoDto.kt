@@ -1,8 +1,8 @@
-package com.android.sivano.model
+package com.android.sivano.entities
 
 import com.google.gson.annotations.SerializedName
 
-data class UserInfo(
+data class UserInfoDto(
     @SerializedName("email")
     val email: String,
     @SerializedName("password")

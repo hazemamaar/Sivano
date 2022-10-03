@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.sivano.model.AllFavoriteProducts
-import com.android.sivano.model.MyResponse
+import com.android.sivano.entities.AllFavoriteProducts
+import com.android.sivano.entities.MyResponse
 import com.android.sivano.repo.DefaultRepo
 import com.android.sivano.common.uitil.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel

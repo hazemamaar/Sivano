@@ -1,6 +1,6 @@
-package com.android.sivano.model
+package com.android.sivano.entities
 
-data class Categories(
+data class CategoriesDto(
     val id: Int,
     val image: String,
     val name: String
