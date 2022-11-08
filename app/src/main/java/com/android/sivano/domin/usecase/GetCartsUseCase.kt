@@ -9,10 +9,10 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class GetCartsUseCase @Inject constructor(val defaultRepo: DefaultRepo) {
-    operator fun invoke(token:String) :Flow<Resource<GetAllCarts>> = flow {
+    operator fun invoke() :Flow<Resource<GetAllCarts>> = flow {
         emit(Resource.Loading())
         try {
-            val getCarts=defaultRepo.getAllCarts(token)
+            val getCarts=defaultRepo.getAllCarts()
             emit(Resource.Success(getCarts.data.toGetAllCarts()))
         }catch (e:Exception){
             emit(Resource.Error(e.localizedMessage?:"Unknown error occurred"))

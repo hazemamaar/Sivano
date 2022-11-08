@@ -1,6 +1,6 @@
 package com.android.sivano.entities
 
-data class CategoryModel(
+data class CategoryModelResponseDto(
     val current_page: Int,
     val data: List<CategoriesDto>,
     val first_page_url: String,

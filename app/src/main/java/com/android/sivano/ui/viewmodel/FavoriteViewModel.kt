@@ -17,9 +17,9 @@ import javax.inject.Inject
 class FavoriteViewModel @Inject constructor(@ApplicationContext val context: Context
                         ,private val defaultRepo: DefaultRepo) : ViewModel() {
     var favoriteMutableLiveData: MutableLiveData<Resource<MyResponse<AllFavoriteProducts>>> = MutableLiveData()
-    fun getFavorites(token:String){
+    fun getFavorites(){
         viewModelScope.launch {
-            val response=defaultRepo.getFavorites(token)
+            val response=defaultRepo.getFavorites()
             favoriteMutableLiveData.postValue(handleAddFavorite(response))
         }
     }

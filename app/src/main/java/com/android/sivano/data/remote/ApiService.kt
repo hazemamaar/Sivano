@@ -12,17 +12,17 @@ interface ApiService {
 //    @POST("verify-email")
 ////    suspend fun verifyEmail(@Body email:String,@Header("lang") lang: String="ar"):MyResponse<>
     @GET("home")
-    suspend fun homePage(@Header("lang") lang:String="en",@Header("Authorization") auth:String):MyResponse<HomePageDto>
+    suspend fun homePage():MyResponse<HomePageDto>
     @GET("categories")
-    suspend fun categories(@Header("lang") lang:String="en"):MyResponse<CategoryModel>
+    suspend fun categories():MyResponse<CategoryModelResponseDto>
     @POST("favorites")
-    suspend fun addToFavorite(@Body fav: Fav, @Header("lang") lang:String="en", @Header("Authorization") auth:String):MyResponse<AddorRemoveFavoriteDto>
+    suspend fun addToFavorite(@Body fav: Fav):MyResponse<AddorRemoveFavoriteDto>
     @GET("favorites")
-    suspend fun getFavorites(@Header("lang") lang:String="en",@Header("Authorization") auth:String):MyResponse<AllFavoriteProducts>
+    suspend fun getFavorites():MyResponse<AllFavoriteProducts>
     @DELETE("favorites/{id}")
-    suspend fun deleteFromFavorite(@Path("id") id:Int,@Header("lang") lang:String="en",@Header("Authorization") auth:String):MyResponse<AddorRemoveFavoriteDto>
+    suspend fun deleteFromFavorite(@Path("id") id:Int):MyResponse<AddorRemoveFavoriteDto>
     @POST("carts")
-    suspend fun addOrRemoveToCart(@Body fav: Fav, @Header("lang") lang:String="en", @Header("Authorization") auth:String):MyResponse<AddCartDto>
+    suspend fun addOrRemoveToCart(@Body fav: Fav):MyResponse<AddCartDto>
     @GET("carts")
-    suspend fun getCarts(@Header("lang") lang:String="en", @Header("Authorization") auth:String):MyResponse<GetCartsDto>
+    suspend fun getCarts():MyResponse<GetCartsDto>
 }

@@ -1,11 +1,14 @@
 package com.android.sivano.ui.adabters
 import android.graphics.Color
+import android.util.Log
 import android.view.*
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sivano.R
+import com.android.sivano.domin.model.CategoryItemModel
+import com.android.sivano.domin.model.CategoryModel
 import com.android.sivano.entities.CategoriesDto
 import com.google.android.material.button.MaterialButton
 import javax.inject.Inject
@@ -15,16 +18,16 @@ class CategoryRecyclerView @Inject constructor() : RecyclerView.Adapter<Category
     inner class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var btnCategory=itemView.findViewById<MaterialButton>(R.id.category_btn)
     }
-    public var categoryList: List<CategoriesDto>
+    var categoryList: List<CategoryItemModel>
         get() = differ.currentList
         set(value) = differ.submitList(value)
 
-    private val differCallBack = object : DiffUtil.ItemCallback<CategoriesDto>() {
-        override fun areItemsTheSame(oldItem: CategoriesDto, newItem: CategoriesDto): Boolean {
+    private val differCallBack = object : DiffUtil.ItemCallback<CategoryItemModel>() {
+        override fun areItemsTheSame(oldItem: CategoryItemModel, newItem: CategoryItemModel): Boolean {
             return oldItem.hashCode()== newItem.hashCode()
         }
 
-        override fun areContentsTheSame(oldItem: CategoriesDto, newItem: CategoriesDto): Boolean {
+        override fun areContentsTheSame(oldItem: CategoryItemModel, newItem: CategoryItemModel): Boolean {
             return oldItem == newItem
         }
     }
@@ -39,14 +42,14 @@ class CategoryRecyclerView @Inject constructor() : RecyclerView.Adapter<Category
             )
         )
     }
-    private var onItemClickListener: ((CategoriesDto) -> Unit)? = null
+    private var onItemClickListener: ((CategoryItemModel) -> Unit)? = null
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val category = categoryList[position]
         holder.itemView.apply {
+            Log.i("lalalal", "onBindViewHolder: "+"dn")
            holder.btnCategory.text=category.name
             holder.btnCategory.setOnClickListener(View.OnClickListener {
-
             })
             holder.btnCategory.setOnTouchListener(object : View.OnTouchListener {
                 override fun onTouch(v: View?, event: MotionEvent?): Boolean {
@@ -73,7 +76,7 @@ class CategoryRecyclerView @Inject constructor() : RecyclerView.Adapter<Category
     }
     override fun getItemCount() = categoryList.size
 
-    fun setOnItemClickListener(listener: (CategoriesDto) -> Unit) {
+    fun setOnItemClickListener(listener: (CategoryItemModel) -> Unit) {
         onItemClickListener = listener
     }
 }

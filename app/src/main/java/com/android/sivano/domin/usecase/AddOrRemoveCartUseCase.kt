@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class AddOrRemoveCartUseCase @Inject constructor(val defaultRepo: DefaultRepo) {
-    operator fun invoke(fav:Fav,token:String):Flow<Resource<AddOrRemoveCartModel>> = flow {
+    operator fun invoke(fav:Fav):Flow<Resource<AddOrRemoveCartModel>> = flow {
         emit(Resource.Loading())
         try {
-            val addOrRemoveCartData= defaultRepo.addOrRemoveCart(fav,token)
+            val addOrRemoveCartData= defaultRepo.addOrRemoveCart(fav)
             emit(Resource.Success(addOrRemoveCartData.data.toAddCartResponse()))
         }catch (e:Exception){
             emit(Resource.Error(e.localizedMessage?:"Unknown error occurred"))

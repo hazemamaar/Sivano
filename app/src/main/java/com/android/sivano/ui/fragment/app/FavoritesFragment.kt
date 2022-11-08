@@ -27,7 +27,7 @@ class FavoritesFragment : Fragment() {
      lateinit var favoriteRecyclerView:FavoriteRecyclerView
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        favViewModel.getFavorites(complexPreferences.getString("token"))
+        favViewModel.getFavorites()
         setUpFavoriteRecyclerView()
         favViewModel.favoriteMutableLiveData.observe(viewLifecycleOwner, Observer {
             toast("${it.data?.data?.current_page}")

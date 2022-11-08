@@ -41,9 +41,8 @@ class SignInFragment : Fragment() {
                     Observer { response ->
                         when (response) {
                             is Resource.Success -> {
-                                // hideProgress()
+                                 hideProgress()
                                 response.data?.let { newsResponse ->
-                                    toast(newsResponse.email)
                                     complexPreferences?.apply {
                                         putString("token",newsResponse.token)
                                         putObject("user",newsResponse)
@@ -53,21 +52,26 @@ class SignInFragment : Fragment() {
                                 }
                             }
                             is Resource.Error -> {
-                                // hideProgress()
+                                 hideProgress()
                                 response.message?.let { message ->
                                     toast(message)
                                 }
                             }
                             is Resource.Loading -> {
-                                // ShowProgress()
-                                toast("loading")
+                                 showProgress()
                             }
                             else -> {}
                         }
                     })
             }
-//            findNavController().navigate(R.id.action_signInFragment_to_defaultActivity2)
+ //           findNavController().navigate(R.id.action_signInFragment_to_defaultActivity2)
         })
+    }
+   fun showProgress(){
+        binding.spinKit.visibility=View.VISIBLE
+    }
+    fun hideProgress(){
+        binding.spinKit.visibility=View.GONE
     }
     private fun login() {
         authViewModel.login(

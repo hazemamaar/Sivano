@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sivano.R
+import com.android.sivano.domin.model.Banner
 import com.android.sivano.entities.BannerDto
 import com.bumptech.glide.Glide
 
-class BannersAdapter(var bannerList: List<BannerDto>) :
+class BannersAdapter(var bannerList: List<Banner>) :
     RecyclerView.Adapter<BannersAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             val imgBanner = itemView.findViewById<ImageView>(R.id.image_banner)

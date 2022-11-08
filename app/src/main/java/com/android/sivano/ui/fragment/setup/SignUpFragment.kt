@@ -40,21 +40,20 @@ class SignUpFragment : Fragment() {
                     Observer { response ->
                         when (response) {
                             is Resource.Success -> {
-                                // hideProgress()
+                                 hideProgress()
                                 response.data?.let { response ->
                                     toast("Done")
                                     findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
                                 }
                             }
                             is Resource.Error -> {
-                                // hideProgress()
+                                 hideProgress()
                                 response.message?.let { message ->
                                     toast(message)
                                 }
                             }
                             is Resource.Loading -> {
-                                // ShowProgress()
-                                toast("loading")
+                                 showProgress()
                             }
                             else -> {}
                         }
@@ -66,7 +65,12 @@ class SignUpFragment : Fragment() {
             findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
         }
     }
-
+    fun showProgress(){
+        binding.spinKit.visibility=View.VISIBLE
+    }
+    fun hideProgress(){
+        binding.spinKit.visibility=View.GONE
+    }
    private fun register() {
         authViewModel.register(
             UserInfoDto(

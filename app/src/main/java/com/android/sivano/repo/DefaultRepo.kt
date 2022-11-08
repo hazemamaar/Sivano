@@ -5,11 +5,11 @@ import com.android.sivano.entities.Fav
 import javax.inject.Inject
 
 class DefaultRepo @Inject constructor(private val apiService: ApiService){
-    suspend fun homePage(token:String)=apiService.homePage(auth=token)
+    suspend fun homePage()=apiService.homePage()
     suspend fun categories()=apiService.categories()
-    suspend fun addToFavorite(fav: Fav, token:String)=apiService.addToFavorite(auth=token, fav = fav)
-    suspend fun getFavorites(token:String)=apiService.getFavorites(auth = token)
-    suspend fun deleteFromFavorite(id: Int, token:String)=apiService.deleteFromFavorite(auth=token, id = id)
-    suspend fun addOrRemoveCart(fav: Fav, token:String)=apiService.addOrRemoveToCart(auth=token, fav = fav)
-    suspend fun  getAllCarts(token: String)=apiService.getCarts(auth = token)
+    suspend fun addToFavorite(fav: Fav)=apiService.addToFavorite( fav = fav)
+    suspend fun getFavorites()=apiService.getFavorites()
+    suspend fun deleteFromFavorite(id: Int)=apiService.deleteFromFavorite( id = id)
+    suspend fun addOrRemoveCart(fav: Fav)=apiService.addOrRemoveToCart( fav = fav)
+    suspend fun  getAllCarts()=apiService.getCarts()
 }

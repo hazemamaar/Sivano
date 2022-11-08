@@ -47,10 +47,13 @@ class AppModule {
                 val original: Request = chain.request()
                 val builder: Request.Builder = original.newBuilder()
                 val token = complexPreferences.getString(token, "")
-                val lang=complexPreferences.getString("lang","en")
+                val lang="en"
                 val newRequest = builder.apply {
-                    addHeader("Accept", "application/json")
-                    if (token.isNotEmpty()) addHeader("Authorization", "$token")
+//                    addHeader("Accept", "application/json")
+                    if (token.isNotEmpty())
+                    {addHeader("Authorization", "$token")
+                    addHeader("lang","$lang")
+                    }
                     build()
                 }
                 return@addInterceptor chain.proceed(newRequest.build())

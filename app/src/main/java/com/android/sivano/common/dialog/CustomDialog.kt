@@ -39,10 +39,7 @@ object CustomDialog {
             ColorDrawable(Color.TRANSPARENT)
         )
         dialog.window!!.attributes.windowAnimations = R.style.DialogAnimation
-
         dialog.show()
-
-
         bind.description.text=product.description
         (product.price.toString()+"LE").also{ bind.price.text = it }
 //        (product.old_price.toString()+"LE").also { bind.oldPrice.text = it }

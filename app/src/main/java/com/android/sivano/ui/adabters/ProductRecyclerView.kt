@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sivano.R
+import com.android.sivano.domin.model.ProductsHomePage
 import com.android.sivano.entities.Products
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
@@ -30,16 +31,16 @@ class ProductRecyclerView @Inject constructor() :
         var imagediscount=itemView.findViewById<ImageView>(R.id.image_discount)
     }
 
-    var productList: List<Products>
+    var productList: List<ProductsHomePage>
         get() = differ.currentList
         set(value) = differ.submitList(value)
 
-    private val differCallBack = object : DiffUtil.ItemCallback<Products>() {
-        override fun areItemsTheSame(oldItem: Products, newItem: Products): Boolean {
+    private val differCallBack = object : DiffUtil.ItemCallback<ProductsHomePage>() {
+        override fun areItemsTheSame(oldItem: ProductsHomePage, newItem: ProductsHomePage): Boolean {
             return oldItem.hashCode() == newItem.hashCode()
         }
 
-        override fun areContentsTheSame(oldItem: Products, newItem: Products): Boolean {
+        override fun areContentsTheSame(oldItem: ProductsHomePage, newItem: ProductsHomePage): Boolean {
             return oldItem == newItem
         }
     }
@@ -95,24 +96,24 @@ class ProductRecyclerView @Inject constructor() :
 
     override fun getItemCount() = productList.size
 
-    private var onItemClickListener: ((Products) -> Unit)? = null
-    private var onButtonItemClickListener: ((Products) -> Unit)? = null
-    private var onImageHeartClickListener: ((Products) -> Unit)? = null
-    private var onAddToCartClickListener: ((Products) -> Unit)? = null
-    fun setOnItemClickListener(listener: (Products) -> Unit) {
+    private var onItemClickListener: ((ProductsHomePage) -> Unit)? = null
+    private var onButtonItemClickListener: ((ProductsHomePage) -> Unit)? = null
+    private var onImageHeartClickListener: ((ProductsHomePage) -> Unit)? = null
+    private var onAddToCartClickListener: ((ProductsHomePage) -> Unit)? = null
+    fun setOnItemClickListener(listener: (ProductsHomePage) -> Unit) {
         onItemClickListener = listener
     }
-    fun setAddToCartClickListener(listener: (Products) -> Unit) {
+    fun setAddToCartClickListener(listener: (ProductsHomePage) -> Unit) {
         onAddToCartClickListener = listener
     }
-    fun setOnButtonSeeDetailsClickListener(listener: (Products) -> Unit) {
+    fun setOnButtonSeeDetailsClickListener(listener: (ProductsHomePage) -> Unit) {
         onButtonItemClickListener = listener
     }
 
-    fun setOnImageHeartClickListener(listener: (Products) -> Unit) {
+    fun setOnImageHeartClickListener(listener: (ProductsHomePage) -> Unit) {
         onImageHeartClickListener = listener
     }
-    fun setOnDeleteClickListener(listener: (Products) -> Unit) {
+    fun setOnDeleteClickListener(listener: (ProductsHomePage) -> Unit) {
         onImageHeartClickListener = listener
     }
 }
