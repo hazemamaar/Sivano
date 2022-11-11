@@ -20,18 +20,21 @@ import javax.inject.Inject
 class FavoritesFragment : Fragment() {
     private lateinit var _binding: FragmentFavoritesBinding
     private val binding get() = _binding
-    private val favViewModel:FavoriteViewModel by viewModels()
+    private val favViewModel: FavoriteViewModel by viewModels()
+
     @Inject
     lateinit var complexPreferences: ComplexPreferences
-     @Inject
-     lateinit var favoriteRecyclerView:FavoriteRecyclerView
+
+    @Inject
+    lateinit var favoriteRecyclerView: FavoriteRecyclerView
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         favViewModel.getFavorites()
         setUpFavoriteRecyclerView()
         favViewModel.favoriteMutableLiveData.observe(viewLifecycleOwner, Observer {
-            toast("${it.data?.data?.current_page}")
-            favoriteRecyclerView.favoriteList= it.data?.data?.favoriteData!!
+            if (it.data?.favoriteData != null && it.data.favoriteData.isNotEmpty()) {
+                favoriteRecyclerView.favoriteList = it.data?.favoriteData!!
+            }
         })
     }
 
@@ -41,14 +44,13 @@ class FavoritesFragment : Fragment() {
     ): View? {
         _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
-    private fun setUpFavoriteRecyclerView(){
+    private fun setUpFavoriteRecyclerView() {
         binding.rvFavorites.apply {
             adapter = favoriteRecyclerView
             layoutManager = LinearLayoutManager(activity)
             //  addOnScrollListener(this@BreakingNewsFragment.scrollListener)
         }
     }
- }
+}

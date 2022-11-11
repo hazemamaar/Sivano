@@ -16,13 +16,13 @@ interface ApiService {
     @GET("categories")
     suspend fun categories():MyResponse<CategoryModelResponseDto>
     @POST("favorites")
-    suspend fun addToFavorite(@Body fav: Fav):MyResponse<AddorRemoveFavoriteDto>
+    suspend fun addOrRemoveFavorite(@Body fav: Fav):MyResponse<AddOrRemoveFavoriteDto>
     @GET("favorites")
-    suspend fun getFavorites():MyResponse<AllFavoriteProducts>
+    suspend fun getFavorites():MyResponse<GetAllFavoriteProductsDto>
     @DELETE("favorites/{id}")
-    suspend fun deleteFromFavorite(@Path("id") id:Int):MyResponse<AddorRemoveFavoriteDto>
+    suspend fun deleteFromFavorite(@Path("id") id:Int):MyResponse<AddOrRemoveFavoriteDto>
     @POST("carts")
-    suspend fun addOrRemoveToCart(@Body fav: Fav):MyResponse<AddCartDto>
+    suspend fun addOrRemoveToCart(@Body fav: Fav):MyResponse<AddOrRemoveCartDto>
     @GET("carts")
     suspend fun getCarts():MyResponse<GetCartsDto>
 }

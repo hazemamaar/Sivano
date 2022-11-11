@@ -18,7 +18,7 @@ class CategoryUseCase @Inject constructor(val defaultRepo: DefaultRepo) {
             Log.i("useCase", "invoke: "+categoryData.data.toCategoryModel().listCategory.get(1).name)
             emit(Resource.Success(categoryData.data.toCategoryModel()))
         }catch (e:Exception){
-            Log.i("EX", "invoke: ")
+            emit(Resource.Error(e.localizedMessage?:"Unknown error occurred"))
         }
     }
 }

@@ -10,10 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.android.sivano.R
-import com.android.sivano.common.dialog.CustomDialog
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.databinding.FragmentHomeBinding
-import com.android.sivano.entities.AddorRemoveFavoriteDto
+import com.android.sivano.entities.AddOrRemoveFavoriteDto
 import com.android.sivano.entities.Fav
 import com.android.sivano.entities.MyResponse
 import com.android.sivano.ui.adabters.BannersAdapter
@@ -40,7 +39,7 @@ class HomeFragment : Fragment() {
     lateinit var categoryRecyclerView: CategoryRecyclerView
     @Inject
     lateinit var productRecyclerView: ProductRecyclerView
-    var favresponse: List<MyResponse<AddorRemoveFavoriteDto>>? = null
+    var favresponse: List<MyResponse<AddOrRemoveFavoriteDto>>? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         homeViewMode.homePage()
@@ -66,25 +65,27 @@ class HomeFragment : Fragment() {
 
         }
         productRecyclerView.setOnImageHeartClickListener { response ->
+            var fav: Fav = Fav(response.id)
             if (response.in_favorites) {
-                var fav: Fav = Fav(response.id)
-                var deletefav: Int = 1
                 homeViewMode.addToFavorite(fav)
-
                 homeViewMode.addFavoriteMutableLiveData.observe(viewLifecycleOwner, Observer {
-                    toast("${it.data?.data?.id}")
-                    deletefav = it.data?.data?.id!!
+                    if(it.data?.id !=null)
+                          toast("${it.data?.id}"+"delete")
                 })
-                homeViewMode.deleteFromFavorite(complexPreferences.getString("token"), deletefav)
-                homeViewMode.deleteFavoriteMutableLiveData.observe(viewLifecycleOwner, Observer {
-                    toast("done delete")
-                })
+//                homeViewMode.deleteFromFavorite(complexPreferences.getString("token"), deletefav)
+//                homeViewMode.deleteFavoriteMutableLiveData.observe(viewLifecycleOwner, Observer {
+//                    toast("done delete")
+//                })
             } else {
-                var fav: Fav = Fav(response.id)
                 homeViewMode.addToFavorite(fav)
-                addToFavorite()
+                homeViewMode.addFavoriteMutableLiveData.observe(viewLifecycleOwner, Observer {
+                    if(it.data?.id !=null)
+                        toast("${it.data?.id}"+"add")
+
+                })
             }
         }
+
     }
 
     override fun onCreateView(
@@ -218,7 +219,7 @@ class HomeFragment : Fragment() {
 
     private fun addToFavorite() {
         homeViewMode.addFavoriteMutableLiveData.observe(viewLifecycleOwner, Observer {
-            toast("${it.data?.data?.id}")
+            toast("${it.data?.id}")
         })
 
     }

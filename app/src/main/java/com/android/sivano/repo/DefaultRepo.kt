@@ -7,7 +7,7 @@ import javax.inject.Inject
 class DefaultRepo @Inject constructor(private val apiService: ApiService){
     suspend fun homePage()=apiService.homePage()
     suspend fun categories()=apiService.categories()
-    suspend fun addToFavorite(fav: Fav)=apiService.addToFavorite( fav = fav)
+    suspend fun addOrRemoveFavorite(fav: Fav)=apiService.addOrRemoveFavorite( fav = fav)
     suspend fun getFavorites()=apiService.getFavorites()
     suspend fun deleteFromFavorite(id: Int)=apiService.deleteFromFavorite( id = id)
     suspend fun addOrRemoveCart(fav: Fav)=apiService.addOrRemoveToCart( fav = fav)

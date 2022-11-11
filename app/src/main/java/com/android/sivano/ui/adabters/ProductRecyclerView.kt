@@ -59,16 +59,16 @@ class ProductRecyclerView @Inject constructor() :
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productList[position]
         val dis:Int =product.discount
-        if (product.in_favorites)
-            holder.imageheart.setImageResource(R.drawable.redheart)
+//        if (product.in_favorites)
+//            holder.imageheart.setImageResource(R.drawable.redheart)
         holder.imageheart.setOnClickListener(View.OnClickListener {
             if(product.in_favorites)
                 holder.imageheart.setImageResource(R.drawable.heartproduct)
-            else
-                 holder.imageheart.setImageResource(R.drawable.redheart)
+            if(!product.in_favorites)
+                holder.imageheart.setImageResource(R.drawable.redheart)
+
             onImageHeartClickListener?.let { it(product) }
         })
-
         holder.itemView.apply {
 
             "${product.price}LE".also { holder.price.text = it }

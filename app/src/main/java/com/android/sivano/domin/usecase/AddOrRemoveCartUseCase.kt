@@ -18,6 +18,5 @@ class AddOrRemoveCartUseCase @Inject constructor(val defaultRepo: DefaultRepo) {
         }catch (e:Exception){
             emit(Resource.Error(e.localizedMessage?:"Unknown error occurred"))
         }
-
     }
 }

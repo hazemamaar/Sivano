@@ -1,6 +1,6 @@
 package com.android.sivano.entities
 
-data class AddCartDto(
+data class AddOrRemoveCartDto(
     val id: Int,
     val product: CartOrFavProduct,
     val quantity: Int

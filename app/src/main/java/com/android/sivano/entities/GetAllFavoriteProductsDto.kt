@@ -2,10 +2,10 @@ package com.android.sivano.entities
 
 import com.google.gson.annotations.SerializedName
 
-data class AllFavoriteProducts(
+data class GetAllFavoriteProductsDto(
     val current_page: Int,
     @SerializedName("data")
-    val favoriteData: List<FavoriteData>,
+    val favoriteData: List<FavoriteDataDto>,
     val first_page_url: String,
     val from: Int,
     val last_page: Int,
