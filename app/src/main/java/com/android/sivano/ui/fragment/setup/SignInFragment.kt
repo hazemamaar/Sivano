@@ -64,7 +64,7 @@ class SignInFragment : Fragment() {
                         }
                     })
             }
- //           findNavController().navigate(R.id.action_signInFragment_to_defaultActivity2)
+           findNavController().navigate(R.id.action_signInFragment_to_defaultActivity2)
         })
     }
    fun showProgress(){

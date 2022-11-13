@@ -85,6 +85,7 @@ dependencies {
     implementation 'com.hbb20:ccp:2.5.1'
     implementation 'com.github.zhpanvip:viewpagerindicator:1.2.1'
     implementation 'kr.co.prnd:readmore-textview:1.0.0'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
 
 }
 kapt {

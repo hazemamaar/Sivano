@@ -1,5 +1,6 @@
 package com.android.sivano.domin.usecase
 
+import android.util.Log
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.domin.mapper.toGetAllCarts
 import com.android.sivano.domin.model.GetAllCarts
@@ -13,6 +14,7 @@ class GetCartsUseCase @Inject constructor(val defaultRepo: DefaultRepo) {
         emit(Resource.Loading())
         try {
             val getCarts=defaultRepo.getAllCarts()
+            Log.d("cartsuseCase", "getAllCarts: "+getCarts.data.cart_items.size)
             emit(Resource.Success(getCarts.data.toGetAllCarts()))
         }catch (e:Exception){
             emit(Resource.Error(e.localizedMessage?:"Unknown error occurred"))
