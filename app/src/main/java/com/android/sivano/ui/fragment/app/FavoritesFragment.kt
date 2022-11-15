@@ -31,11 +31,11 @@ class FavoritesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         favViewModel.getFavorites()
         setUpFavoriteRecyclerView()
-        favViewModel.favoriteMutableLiveData.observe(viewLifecycleOwner, Observer {
+        favViewModel.favoriteMutableLiveData.observe(viewLifecycleOwner) {
             if (it.data?.favoriteData != null && it.data.favoriteData.isNotEmpty()) {
-                favoriteRecyclerView.favoriteList = it.data?.favoriteData!!
+                favoriteRecyclerView.favoriteList = it.data.favoriteData
             }
-        })
+        }
     }
 
     override fun onCreateView(

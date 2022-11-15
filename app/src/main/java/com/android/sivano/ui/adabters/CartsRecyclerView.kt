@@ -1,5 +1,7 @@
 package com.android.sivano.ui.adabters
 
+import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,22 +11,56 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sivano.R
+import com.android.sivano.databinding.ItemCatLayoutBinding
 import com.android.sivano.domin.model.CartItem
-import com.android.sivano.entities.GetCartsDto
 import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.makeramen.roundedimageview.RoundedImageView
 import javax.inject.Inject
 
-class CartsRecyclerView @Inject constructor() : RecyclerView.Adapter<CartsRecyclerView.CartsViewHolder>() {
+class CartsRecyclerView @Inject constructor(
+    private val context: Context,
 
-    inner class CartsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        var imageProduct =itemView.findViewById<RoundedImageView>(R.id.product_Image)
-        var imageDelete=itemView.findViewById<ImageView>(R.id.removeImg)
-        var nameProduct =itemView.findViewById<TextView>(R.id.product_Title)
-        var priceProduct=itemView.findViewById<TextView>(R.id.price)
-        var minusTotal=itemView.findViewById<ImageView>(R.id.min_tot_cart)
-        var plusTotal=itemView.findViewById<ImageView>(R.id.add)
-        var mount=itemView.findViewById<TextView>(R.id.item_cart_mount)
+) : RecyclerView.Adapter<CartsRecyclerView.CartsViewHolder>() {
+
+    inner class CartsViewHolder(private val binding: ItemCatLayoutBinding) : RecyclerView.ViewHolder(binding.root){
+      fun bind(item: CartItem){
+          Glide.with(context).load(item.product.image).listener(object : RequestListener<Drawable?>{
+              override fun onLoadFailed(
+                  e: GlideException?,
+                  model: Any?,
+                  target: com.bumptech.glide.request.target.Target<Drawable?>?,
+                  isFirstResource: Boolean
+              ): Boolean {
+                  binding.progressShimmer.stopShimmer()
+                  binding.progressShimmer.visibility=View.GONE
+                  return false
+              }
+
+              override fun onResourceReady(
+                  resource: Drawable?,
+                  model: Any?,
+                  target: com.bumptech.glide.request.target.Target<Drawable?>?,
+                  dataSource: com.bumptech.glide.load.DataSource?,
+                  isFirstResource: Boolean
+              ): Boolean {
+                  binding.progressShimmer.stopShimmer()
+                  binding.progressShimmer.visibility=View.GONE
+
+                  return false
+              }
+
+
+
+          }).into(binding.productImage)
+          binding.productTitle.text=item.product.name
+          binding.itemCartMount.text=item.quantity.toString()
+
+              binding.price.text=item.product.price.toString()
+      }
     }
 
     var cartList: List<CartItem>
@@ -43,25 +79,18 @@ class CartsRecyclerView @Inject constructor() : RecyclerView.Adapter<CartsRecycl
     val differ = AsyncListDiffer(this, differCallBack)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartsViewHolder {
+        val itemBinding = ItemCatLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
         return CartsViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.item_cat_layout,
-                parent,
-                false
-            )
+           itemBinding
         )
     }
-
     private var onItemClickListener: ((CartItem) -> Unit)? = null
 
     override fun onBindViewHolder(holder: CartsViewHolder, position: Int) {
         val cart = cartList[position]
-        holder.itemView.apply {
-            Glide.with(context).load(cart.product.image).into(holder.imageProduct)
-            holder.nameProduct.text=cart.product.name
-            holder.mount.text=cart.quantity.toString()
-            holder.priceProduct.text=cart.product.price.toString()
-
+        holder.apply {
+            bind(cart)
         }
     }
 

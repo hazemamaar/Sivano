@@ -36,7 +36,7 @@
                 />
 
             <ImageView
-                android:id="@+id/heartImg"
+                android:id="@+id/heartImg_product"
                 android:layout_width="@dimen/_17sdp"
                 android:layout_height="@dimen/_17sdp"
                 android:src="@drawable/heartproduct"

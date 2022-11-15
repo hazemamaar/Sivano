@@ -1,12 +1,15 @@
 package com.android.sivano.ui.fragment.app
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.sivano.R
 import com.android.sivano.databinding.FragmentCartBinding
@@ -15,6 +18,9 @@ import com.android.sivano.ui.adabters.CartsRecyclerView
 import com.android.sivano.ui.viewmodel.CartViewModel
 import com.android.sivano.ui.viewmodel.FavoriteViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -24,17 +30,30 @@ class CartFragment : Fragment() {
     private val cartViewModel: CartViewModel by viewModels()
     @Inject
     lateinit var cartsRecyclerView:CartsRecyclerView
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         cartViewModel.getAllCarts()
         setUpCartRecyclerView()
-        cartViewModel.cartsMutableLiveData.observe(viewLifecycleOwner, Observer {
-            if (it.data?.cart_items != null && it.data.cart_items.isNotEmpty()) {
-                cartsRecyclerView.cartList=it.data?.cart_items!!
-            }
-            binding.valueSubTotal.text="${it.data?.sub_total?.toInt()}EGP"
-            binding.valueTotal.text="${it.data?.total?.toInt()}EGP"
-        })
+//        cartViewModel.cartsMutableLiveData.observe(viewLifecycleOwner, Observer {
+//            if (it.data?.cart_items != null && it.data.cart_items.isNotEmpty()) {
+//                binding.shimmer.visibility=View.GONE
+//                cartsRecyclerView.cartList=it.data?.cart_items!!
+//            }
+//            binding.valueSubTotal.text="${it.data?.sub_total?.toInt()}EGP"
+//            binding.valueTotal.text="${it.data?.total?.toInt()}EGP"
+//        })
+
+            cartViewModel.cardSharedFlow.onEach {
+                if (it.data?.cart_items != null && it.data.cart_items.isNotEmpty()) {
+                    Log.e("getshared", "onViewCreated: "+it.data.toString() )
+                    binding.shimmer.visibility=View.GONE
+                    cartsRecyclerView.cartList=it.data?.cart_items!!
+                }
+                binding.valueSubTotal.text = "${it.data?.sub_total?.toInt()}EGP"
+                binding.valueTotal.text = "${it.data?.total?.toInt()}EGP"
+            }.launchIn(lifecycleScope)
+
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

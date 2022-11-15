@@ -1,5 +1,6 @@
 package com.android.sivano.ui.adabters
 
+import android.annotation.SuppressLint
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
@@ -18,8 +19,21 @@ import javax.inject.Inject
 
 class ProductRecyclerView @Inject constructor() :
     RecyclerView.Adapter<ProductRecyclerView.ProductViewHolder>() {
+    private var mPos: Int = 0
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(product: ProductsHomePage) {
+            if (!product.in_favorites)
+                imageheart.setImageResource(R.drawable.heartproduct)
+            else
+                imageheart.setImageResource(R.drawable.redheart)
+
+            imageheart.setOnClickListener {
+                mPos=adapterPosition
+                onImageHeartClickListener?.let { it(product) }
+            }
+        }
+
         var discount = itemView.findViewById<TextView>(R.id.discount)
         var imageProduct = itemView.findViewById<ImageView>(R.id.product_Image)
         var oldPrice = itemView.findViewById<TextView>(R.id.old_price)
@@ -27,20 +41,34 @@ class ProductRecyclerView @Inject constructor() :
         var title = itemView.findViewById<TextView>(R.id.product_Title)
         var btnSeeDetails = itemView.findViewById<MaterialButton>(R.id.see_details_btn)
         var btnAddToCart = itemView.findViewById<MaterialButton>(R.id.add_cart_btn)
-        var imageheart = itemView.findViewById<ImageView>(R.id.heartImg)
-        var imagediscount=itemView.findViewById<ImageView>(R.id.image_discount)
+        var imageheart = itemView.findViewById<ImageView>(R.id.heartImg_product)
+        var imagediscount = itemView.findViewById<ImageView>(R.id.image_discount)
+
     }
 
     var productList: List<ProductsHomePage>
         get() = differ.currentList
         set(value) = differ.submitList(value)
 
+    fun updateItem(item: ProductsHomePage) {
+        val newlist=productList.toMutableList()
+        newlist[mPos]=item
+        productList=newlist
+       notifyDataSetChanged()
+    }
+
     private val differCallBack = object : DiffUtil.ItemCallback<ProductsHomePage>() {
-        override fun areItemsTheSame(oldItem: ProductsHomePage, newItem: ProductsHomePage): Boolean {
+        override fun areItemsTheSame(
+            oldItem: ProductsHomePage,
+            newItem: ProductsHomePage
+        ): Boolean {
             return oldItem.hashCode() == newItem.hashCode()
         }
 
-        override fun areContentsTheSame(oldItem: ProductsHomePage, newItem: ProductsHomePage): Boolean {
+        override fun areContentsTheSame(
+            oldItem: ProductsHomePage,
+            newItem: ProductsHomePage
+        ): Boolean {
             return oldItem == newItem
         }
     }
@@ -56,19 +84,12 @@ class ProductRecyclerView @Inject constructor() :
         )
     }
 
-    override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ProductViewHolder, @SuppressLint("RecyclerView") position: Int) {
         val product = productList[position]
-        val dis:Int =product.discount
+        val dis: Int = product.discount
 //        if (product.in_favorites)
 //            holder.imageheart.setImageResource(R.drawable.redheart)
-        holder.imageheart.setOnClickListener(View.OnClickListener {
-            if(product.in_favorites)
-                holder.imageheart.setImageResource(R.drawable.heartproduct)
-            if(!product.in_favorites)
-                holder.imageheart.setImageResource(R.drawable.redheart)
-
-            onImageHeartClickListener?.let { it(product) }
-        })
+      holder.bind(product)
         holder.itemView.apply {
 
             "${product.price}LE".also { holder.price.text = it }
@@ -76,22 +97,23 @@ class ProductRecyclerView @Inject constructor() :
             product.name.also { holder.title.text = it }
 
         }
-        holder.btnSeeDetails.setOnClickListener(View.OnClickListener {
+        holder.btnSeeDetails.setOnClickListener {
             onButtonItemClickListener?.let { it(product) }
-        })
-        holder.btnAddToCart.setOnClickListener(View.OnClickListener {
+        }
+        holder.btnAddToCart.setOnClickListener {
             onAddToCartClickListener?.let { it(product) }
-        })
-        if(dis==0) {
+        }
+        if (dis == 0) {
             holder.discount.visibility = View.GONE
             holder.oldPrice.visibility = View.GONE
             holder.imagediscount.visibility = View.GONE
-        }else{
-                "${product.discount}%".also { holder.discount.text = it }
-                "${product.old_price}LE".also { holder.oldPrice.text = it }
-                holder.oldPrice.paintFlags =
-                    holder.oldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+        } else {
+            "${product.discount}%".also { holder.discount.text = it }
+            "${product.old_price}LE".also { holder.oldPrice.text = it }
+            holder.oldPrice.paintFlags =
+                holder.oldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
         }
+
     }
 
     override fun getItemCount() = productList.size
@@ -103,9 +125,11 @@ class ProductRecyclerView @Inject constructor() :
     fun setOnItemClickListener(listener: (ProductsHomePage) -> Unit) {
         onItemClickListener = listener
     }
+
     fun setAddToCartClickListener(listener: (ProductsHomePage) -> Unit) {
         onAddToCartClickListener = listener
     }
+
     fun setOnButtonSeeDetailsClickListener(listener: (ProductsHomePage) -> Unit) {
         onButtonItemClickListener = listener
     }
@@ -113,6 +137,7 @@ class ProductRecyclerView @Inject constructor() :
     fun setOnImageHeartClickListener(listener: (ProductsHomePage) -> Unit) {
         onImageHeartClickListener = listener
     }
+
     fun setOnDeleteClickListener(listener: (ProductsHomePage) -> Unit) {
         onImageHeartClickListener = listener
     }
