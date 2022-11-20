@@ -8,7 +8,6 @@ import com.android.sivano.common.uitil.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
-
 class LoginUseCase @Inject constructor(val authRepo: AuthRepo){
     operator fun invoke(userInfoDto:UserInfoDto):Flow<Resource<User>> =flow{
         emit(Resource.Loading())

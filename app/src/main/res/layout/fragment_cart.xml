@@ -19,6 +19,7 @@
         android:textSize="@dimen/_15sdp"
         />
     <ImageView
+        android:id="@+id/back"
         android:layout_width="@dimen/_25sdp"
         android:layout_height="@dimen/_25sdp"
         android:src="@drawable/backicon"

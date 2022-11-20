@@ -1,6 +1,7 @@
 package com.android.sivano.ui.fragment.setup
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,14 +17,20 @@ import com.android.sivano.entities.UserInfoDto
 import com.android.sivano.ui.viewmodel.AuthViewModel
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.common.uitil.toast
+import com.android.sivano.entities.FcmTokenOtd
+import com.android.sivano.entities.LogoutFcmOtd
+import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
+import kotlin.math.log
 
 @AndroidEntryPoint
 class SignInFragment : Fragment() {
     private lateinit var _binding: FragmentSignInBinding
     private val binding get() = _binding
     private val authViewModel: AuthViewModel by viewModels()
+    var tok:String="null"
     @Inject
     lateinit var complexPreferences: ComplexPreferences
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,8 +54,32 @@ class SignInFragment : Fragment() {
                                         putString("token",newsResponse.token)
                                         putObject("user",newsResponse)
                                         commit()
-                                        findNavController().navigate(R.id.action_signInFragment_to_defaultActivity2)
+
                                     }
+                                    FirebaseMessaging.getInstance().token.addOnSuccessListener {
+                                        // FCM token send to to your server
+                                        authViewModel.fcmToken(FcmTokenOtd(it))
+                                        authViewModel.fcmTokenSharedFlow.onEach {
+                                            complexPreferences?.apply {
+                                                it.data?.let { it1 ->
+                                                    putString(
+                                                        "fcm_token",
+                                                        it1.token
+                                                    )
+                                                }
+                                                commit()
+                                            }
+                                        }
+                                        Log.e("fcm_logout", "onViewCreated: "+it )
+
+                                    }.addOnCompleteListener {
+                                        // After success event this event is triggered.
+
+                                    }.addOnFailureListener {
+                                        // In case any exception is occurred handle it here.
+                                    }
+//                                    generateTokenFcm()
+                                    findNavController().navigate(R.id.action_signInFragment_to_defaultActivity2)
                                 }
                             }
                             is Resource.Error -> {
@@ -64,7 +95,7 @@ class SignInFragment : Fragment() {
                         }
                     })
             }
-           findNavController().navigate(R.id.action_signInFragment_to_defaultActivity2)
+      //     findNavController().navigate(R.id.action_signInFragment_to_defaultActivity2)
         })
     }
    fun showProgress(){
@@ -92,5 +123,7 @@ class SignInFragment : Fragment() {
         _binding = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
     }
+ fun generateTokenFcm(){
 
+ }
 }

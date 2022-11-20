@@ -8,6 +8,8 @@ import com.android.sivano.common.uitil.C.token
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.data.remote.ApiService
 import com.android.sivano.repo.AuthRepo
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -103,4 +105,7 @@ class AppModule {
         editor: SharedPreferences.Editor,
     ): ComplexPreferences =
         ComplexPreferences(GSON, preferences, editor)
+
+
+
 }

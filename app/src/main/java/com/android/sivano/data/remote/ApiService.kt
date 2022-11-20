@@ -25,4 +25,10 @@ interface ApiService {
     suspend fun addOrRemoveToCart(@Body fav: Fav):MyResponse<AddOrRemoveCartDto>
     @GET("carts")
     suspend fun getCarts():MyResponse<GetCartsDto>
+    @POST("fcm-token")
+    suspend fun setFcmToken(@Body fcmToken: FcmTokenOtd):MyResponse<FcmResponseDto>
+    @POST("logout")
+    suspend fun logout(@Body logoutFcmToken: LogoutFcmOtd):MyResponse<LogoutResponseDto>
+    @GET("profile")
+    suspend fun profile():MyResponse<ProfileDto>
 }

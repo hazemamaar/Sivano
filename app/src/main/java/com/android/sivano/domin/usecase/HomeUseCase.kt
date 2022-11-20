@@ -16,7 +16,7 @@ class HomeUseCase @Inject constructor(val defaultRepo: DefaultRepo){
            val homeData=defaultRepo.homePage()
             emit(Resource.Success(homeData.data.toHomePage()))
         }catch (e:Exception){
-            Log.i("EX", "invoke: ")
+            emit(Resource.Error(e.localizedMessage))
         }
     }
 }

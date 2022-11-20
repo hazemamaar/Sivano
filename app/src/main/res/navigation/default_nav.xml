@@ -28,7 +28,11 @@
         android:id="@+id/cartFragment"
         android:name="com.android.sivano.ui.fragment.app.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.android.sivano.ui.fragment.app.FavoritesFragment"
@@ -36,13 +40,17 @@
         tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.android.sivano.ui.fragment.app.ProfileFragment"
+        android:name="com.android.sivano.ui.fragment.account.AccountFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_account" />
     <fragment
         android:id="@+id/seeDetailsProduct"
         android:label="fragment_see_details_product"
         tools:layout="@layout/dialog_item_see_details" >
 
     </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.android.sivano.ui.fragment.app.MapsFragment"
+        android:label="MapsFragment" />
 </navigation>

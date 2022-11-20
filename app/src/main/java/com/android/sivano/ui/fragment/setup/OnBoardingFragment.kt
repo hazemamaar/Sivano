@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.android.sivano.R
 
 import com.android.sivano.databinding.FragmentOnBoardingBinding
+import com.android.sivano.domin.mapper.toast
+import com.android.sivano.domin.mapper.vaid
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,7 +35,6 @@ class OnBoardingFragment : Fragment() {
             findNavController().navigate(R.id.action_onBoardingFragment_to_signUpFragment)
         })
         binding.startTxt.startAnimation(shake)
-
 //        shake.repeatCount=20// repeat the loop 20 times
 //        shake.duration=100 // animation play time 100 ms
 //        shake.duration;

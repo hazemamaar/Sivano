@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.sivano.R
 import com.android.sivano.databinding.FragmentCartBinding
@@ -44,6 +45,10 @@ class CartFragment : Fragment() {
 //            binding.valueTotal.text="${it.data?.total?.toInt()}EGP"
 //        })
 
+        binding.back.setOnClickListener {
+            findNavController().navigate(R.id.action_cartFragment_to_mapsFragment)
+
+        }
             cartViewModel.cardSharedFlow.onEach {
                 if (it.data?.cart_items != null && it.data.cart_items.isNotEmpty()) {
                     Log.e("getshared", "onViewCreated: "+it.data.toString() )
@@ -59,7 +64,7 @@ class CartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        _binding =FragmentCartBinding.inflate(layoutInflater,container,false)
+        _binding = FragmentCartBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
