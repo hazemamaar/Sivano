@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.sivano.domin.model.User
 import com.android.sivano.domin.usecase.LoginUseCase
-import com.android.sivano.entities.UserInfoDto
+import com.android.sivano.entities.auth.UserInfoDto
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.domin.model.FcmModel
 import com.android.sivano.domin.usecase.FcmUseCase
 import com.android.sivano.domin.usecase.RegisterUserCase
-import com.android.sivano.entities.FcmTokenOtd
+import com.android.sivano.entities.auth.FcmTokenOtd
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -42,12 +42,8 @@ class AuthViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
     fun login(userInfoDto: UserInfoDto){
-//        val response=authRepo.login(userInfo)
-//
-//        loginMutableLiveData.postValue(handleRegisterAndLogin(response))
         useCaseLogin(userInfoDto).onEach {
             loginMutableLiveData.postValue(it)
-
         }.launchIn(viewModelScope)
 
     }

@@ -1,9 +1,9 @@
 package com.android.sivano.repo
 
 import com.android.sivano.data.remote.ApiService
-import com.android.sivano.entities.MyResponse
-import com.android.sivano.entities.UserInfoDto
-import com.android.sivano.entities.UserResponse
+import com.android.sivano.entities.shared.MyResponse
+import com.android.sivano.entities.auth.UserInfoDto
+import com.android.sivano.entities.auth.UserResponse
 import javax.inject.Inject
 
 class AuthRepo @Inject constructor(private val apiService: ApiService) {

@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.android.sivano.R
 import com.android.sivano.databinding.FragmentSignUpBinding
 import com.android.sivano.common.helpers.MyValidation
-import com.android.sivano.entities.UserInfoDto
+import com.android.sivano.entities.auth.UserInfoDto
 import com.android.sivano.ui.viewmodel.AuthViewModel
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.common.uitil.toast

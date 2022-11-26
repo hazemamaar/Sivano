@@ -3,7 +3,7 @@ package com.android.sivano.domin.usecase
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.domin.mapper.toUser
 import com.android.sivano.domin.model.User
-import com.android.sivano.entities.UserInfoDto
+import com.android.sivano.entities.auth.UserInfoDto
 import com.android.sivano.repo.AuthRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

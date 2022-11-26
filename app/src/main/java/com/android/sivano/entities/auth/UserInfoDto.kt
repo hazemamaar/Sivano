@@ -1,4 +1,4 @@
-package com.android.sivano.entities
+package com.android.sivano.entities.auth
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,4 +1,4 @@
-package com.android.sivano.entities
+package com.android.sivano.entities.homepage
 
 data class CategoryModelResponseDto(
     val current_page: Int,

@@ -52,9 +52,6 @@ class CartsRecyclerView @Inject constructor(
 
                   return false
               }
-
-
-
           }).into(binding.productImage)
           binding.productTitle.text=item.product.name
           binding.itemCartMount.text=item.quantity.toString()

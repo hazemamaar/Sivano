@@ -4,7 +4,7 @@ import com.android.sivano.common.uitil.Resource
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.domin.mapper.toLogoutModel
 import com.android.sivano.domin.model.LogoutModel
-import com.android.sivano.entities.LogoutFcmOtd
+import com.android.sivano.entities.auth.LogoutFcmOtd
 import com.android.sivano.repo.DefaultRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

@@ -1,4 +1,4 @@
-package com.android.sivano.entities
+package com.android.sivano.entities.shared
 
 data class MyResponse <T>(
     val data: T,

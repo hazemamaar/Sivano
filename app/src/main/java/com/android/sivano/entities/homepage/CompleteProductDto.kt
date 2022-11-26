@@ -1,9 +1,6 @@
-package com.android.sivano.entities
+package com.android.sivano.entities.homepage
 
-import android.os.Parcel
-import android.os.Parcelable
-
-data class Products(
+data class CompleteProductDto(
     val description: String,
     val discount: Int,
     val id: Int,

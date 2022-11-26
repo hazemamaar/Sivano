@@ -1,6 +1,6 @@
-package com.android.sivano.entities
+package com.android.sivano.entities.shared
 
-data class CartOrFavProduct(
+data class GetFavoriteOrCartProductDto(
     val description: String,
     val discount: Int,
     val id: Int,

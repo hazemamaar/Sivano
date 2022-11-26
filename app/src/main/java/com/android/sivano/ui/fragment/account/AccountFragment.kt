@@ -10,14 +10,11 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.android.sivano.R
-import com.android.sivano.common.uitil.toast
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.databinding.FragmentAccountBinding
-import com.android.sivano.databinding.FragmentCartBinding
-import com.android.sivano.entities.LogoutFcmOtd
 import com.android.sivano.ui.viewmodel.AccountViewModel
-import com.android.sivano.ui.viewmodel.AuthViewModel
 import com.bumptech.glide.Glide
+import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -46,7 +43,7 @@ class AccountFragment : Fragment() {
                 binding.profileName.text=profile?.name
                 Glide.with(this).load(profile?.image).into(binding.userImage)
             }.launchIn(lifecycleScope)
-
+ var latLng:LatLng
 
     }
 

@@ -7,7 +7,6 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sivano.R
 import com.android.sivano.domin.model.Banner
-import com.android.sivano.entities.BannerDto
 import com.bumptech.glide.Glide
 
 class BannersAdapter(var bannerList: List<Banner>) :

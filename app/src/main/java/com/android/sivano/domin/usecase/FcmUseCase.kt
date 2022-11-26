@@ -3,7 +3,7 @@ package com.android.sivano.domin.usecase
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.domin.mapper.toFcmModel
 import com.android.sivano.domin.model.FcmModel
-import com.android.sivano.entities.FcmTokenOtd
+import com.android.sivano.entities.auth.FcmTokenOtd
 import com.android.sivano.repo.DefaultRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sivano.R
 import com.android.sivano.domin.model.CategoryItemModel
-import com.android.sivano.domin.model.CategoryModel
-import com.android.sivano.entities.CategoriesDto
 import com.google.android.material.button.MaterialButton
 import javax.inject.Inject
 

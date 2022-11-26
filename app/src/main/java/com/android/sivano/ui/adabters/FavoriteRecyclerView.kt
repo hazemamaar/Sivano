@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sivano.R
 import com.android.sivano.domin.model.FavoriteData
-import com.android.sivano.entities.FavoriteDataDto
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
 import javax.inject.Inject

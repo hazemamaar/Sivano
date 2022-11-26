@@ -13,17 +13,15 @@ import com.android.sivano.R
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.databinding.FragmentSignInBinding
 import com.android.sivano.common.helpers.MyValidation
-import com.android.sivano.entities.UserInfoDto
+import com.android.sivano.entities.auth.UserInfoDto
 import com.android.sivano.ui.viewmodel.AuthViewModel
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.common.uitil.toast
-import com.android.sivano.entities.FcmTokenOtd
-import com.android.sivano.entities.LogoutFcmOtd
+import com.android.sivano.entities.auth.FcmTokenOtd
 import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
-import kotlin.math.log
 
 @AndroidEntryPoint
 class SignInFragment : Fragment() {
