@@ -25,34 +25,43 @@ class AccountFragment : Fragment() {
     private lateinit var _binding: FragmentAccountBinding
     private val binding get() = _binding
     private val accountViewModel: AccountViewModel by viewModels()
+
     @Inject
-    lateinit var complexPreferences:ComplexPreferences
+    lateinit var complexPreferences: ComplexPreferences
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val fcmToken=complexPreferences.getString("fcm_token")
         binding.logout.setOnClickListener {
-            accountViewModel.logOut()
-            accountViewModel.logoutSharedFlow.onEach {
-                Log.e("logoutsuccess", "onViewCreated: "+it.data?.token )
-                findNavController().navigate(R.id.signInFragment)
-            }.launchIn(lifecycleScope)
+         logout()
         }
-        accountViewModel.profile()
-            accountViewModel.profileSharedFlow.onEach {
-                val profile=it.data
-                binding.profileName.text=profile?.name
-                Glide.with(this).load(profile?.image).into(binding.userImage)
-            }.launchIn(lifecycleScope)
- var latLng:LatLng
-
+        //action_profileFragment_to_profileFragment2
+        profile()
+        binding.goToProfile.setOnClickListener{
+            findNavController().navigate(R.id.action_profileFragment_to_profileFragment2)
+        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-           _binding=FragmentAccountBinding.inflate(inflater,container,false)
+        _binding = FragmentAccountBinding.inflate(inflater, container, false)
         return binding.root
+    }
+  private fun logout(){
+      accountViewModel.logOut()
+      accountViewModel.logoutSharedFlow.onEach {
+          Log.e("logoutsuccess", "onViewCreated: " + it.data?.token)
+          findNavController().navigate(R.id.signInFragment)
+      }.launchIn(lifecycleScope)
+  }
+    private fun profile(){
+        accountViewModel.profile()
+        accountViewModel.profileSharedFlow.onEach {
+            val profile = it.data
+            binding.profileName.text = profile?.name
+            Glide.with(this).load(profile?.image).into(binding.userImage)
+        }.launchIn(lifecycleScope)
+
     }
 
 }

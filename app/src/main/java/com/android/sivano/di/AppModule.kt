@@ -7,7 +7,7 @@ import com.android.sivano.common.uitil.C.PREFERENCES_NAME
 import com.android.sivano.common.uitil.C.token
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.data.remote.ApiService
-import com.android.sivano.repo.AuthRepo
+import com.android.sivano.data.repo.AuthRepo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.gson.Gson

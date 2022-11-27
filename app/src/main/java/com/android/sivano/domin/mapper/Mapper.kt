@@ -3,17 +3,12 @@ package com.android.sivano.domin.mapper
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.android.sivano.domin.model.*
-import com.android.sivano.entities.*
-import com.android.sivano.entities.auth.FcmResponseDto
-import com.android.sivano.entities.auth.LogoutResponseDto
-import com.android.sivano.entities.auth.ProfileDto
-import com.android.sivano.entities.auth.UserResponse
-import com.android.sivano.entities.cart.AddOrRemoveCartDto
-import com.android.sivano.entities.cart.CartItemDto
-import com.android.sivano.entities.cart.GetCartsDto
-import com.android.sivano.entities.favorite.*
-import com.android.sivano.entities.homepage.*
-import com.android.sivano.entities.shared.GetAllPagesDto
+import com.android.sivano.data.entities.*
+import com.android.sivano.data.entities.auth.*
+import com.android.sivano.data.entities.cart.*
+import com.android.sivano.data.entities.favorite.*
+import com.android.sivano.data.entities.homepage.*
+import com.android.sivano.data.entities.shared.*
 
 fun UserResponse.toUser(): User = User(email, id, image, name, phone, token, points, credit)
 fun AddOrRemoveCartDto.toAddCartResponse(): AddOrRemoveCartModel = AddOrRemoveCartModel(
@@ -65,12 +60,5 @@ fun LogoutResponseDto.toLogoutModel(): LogoutModel = LogoutModel(id, token)
 fun ProfileDto.toProfileModel(): ProfileModel = ProfileModel(credit, email, id, image, name, phone, points, token)
 
 
-fun Fragment.toast(string: String){
-    Toast.makeText(requireContext(),string,Toast.LENGTH_LONG).show()
-}
-
-fun String.vaid(){
-
-}
 //fun FavoriteProductDto.toFavoriteProduct():FavoriteProduct=FavoriteProduct(discount,id,image,old_price,price)
 //fun UserInfoDto.toUserInfo():UserInfo=UserInfo(email,password,image,name,phone)

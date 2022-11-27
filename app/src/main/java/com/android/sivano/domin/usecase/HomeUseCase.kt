@@ -2,7 +2,7 @@ package com.android.sivano.domin.usecase
 
 import android.util.Log
 import com.android.sivano.domin.model.HomePageModel
-import com.android.sivano.repo.DefaultRepo
+import com.android.sivano.data.repo.DefaultRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject

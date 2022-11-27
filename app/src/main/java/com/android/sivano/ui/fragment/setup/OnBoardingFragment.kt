@@ -11,8 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.android.sivano.R
 
 import com.android.sivano.databinding.FragmentOnBoardingBinding
-import com.android.sivano.domin.mapper.toast
-import com.android.sivano.domin.mapper.vaid
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -4,8 +4,8 @@ import com.android.sivano.common.uitil.Resource
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.domin.mapper.toLogoutModel
 import com.android.sivano.domin.model.LogoutModel
-import com.android.sivano.entities.auth.LogoutFcmOtd
-import com.android.sivano.repo.DefaultRepo
+import com.android.sivano.data.entities.auth.LogoutFcmOtd
+import com.android.sivano.data.repo.DefaultRepo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -20,7 +20,11 @@ class LogoutUseCase @Inject constructor(
         emit(Resource.Loading())
         try {
             val logoutModel =
-                defaultRepo.logout(LogoutFcmOtd(complexPreferences.getString("fcm_token")))
+                defaultRepo.logout(
+                    com.android.sivano.data.entities.auth.LogoutFcmOtd(
+                        complexPreferences.getString("fcm_token")
+                    )
+                )
             emit(Resource.Success(logoutModel.data.toLogoutModel()))
         } catch (e: Exception) {
             emit(Resource.Error(e.localizedMessage))

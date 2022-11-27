@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.sivano.repo.DefaultRepo
+import com.android.sivano.data.repo.DefaultRepo
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.domin.model.AddOrRemoveCartModel
 import com.android.sivano.domin.model.AddOrRemoveFavorite
@@ -15,9 +15,9 @@ import com.android.sivano.domin.usecase.AddOrRemoveCartUseCase
 import com.android.sivano.domin.usecase.AddOrRemoveFavoriteUseCase
 import com.android.sivano.domin.usecase.CategoryUseCase
 import com.android.sivano.domin.usecase.HomeUseCase
-import com.android.sivano.entities.favorite.AddOrRemoveFavoriteDto
-import com.android.sivano.entities.shared.FavOrCartOtd
-import com.android.sivano.entities.shared.MyResponse
+import com.android.sivano.data.entities.favorite.AddOrRemoveFavoriteDto
+import com.android.sivano.data.entities.shared.FavOrCartOtd
+import com.android.sivano.data.entities.shared.MyResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.launchIn
@@ -38,13 +38,13 @@ class HomePageViewModel @Inject constructor(
     var categoriesMutableLiveData: MutableLiveData<Resource<CategoryModel>> = MutableLiveData()
     var addFavoriteMutableLiveData: MutableLiveData<Resource<AddOrRemoveFavorite>> = MutableLiveData()
     var addOrRemoveCartMutableLiveData: MutableLiveData<Resource<AddOrRemoveCartModel>> = MutableLiveData()
-    var deleteFavoriteMutableLiveData: MutableLiveData<Resource<MyResponse<AddOrRemoveFavoriteDto>>> = MutableLiveData()
-    fun addToFavorite(fav: FavOrCartOtd){
+    var deleteFavoriteMutableLiveData: MutableLiveData<Resource<com.android.sivano.data.entities.shared.MyResponse<com.android.sivano.data.entities.favorite.AddOrRemoveFavoriteDto>>> = MutableLiveData()
+    fun addToFavorite(fav: com.android.sivano.data.entities.shared.FavOrCartOtd){
         addOrRemoveFavoriteUseCase(fav).onEach {
             addFavoriteMutableLiveData.postValue(it)
         }.launchIn(viewModelScope)
     }
-    fun addToCart(fav: FavOrCartOtd){
+    fun addToCart(fav: com.android.sivano.data.entities.shared.FavOrCartOtd){
         addOrRemoveCartUseCase(fav).onEach {
             addOrRemoveCartMutableLiveData.postValue(it)
         }.launchIn(viewModelScope)
@@ -55,7 +55,7 @@ class HomePageViewModel @Inject constructor(
             deleteFavoriteMutableLiveData.postValue(handleDeleteFavorite(response))
         }
     }
-    private fun handleDeleteFavorite(response: MyResponse<AddOrRemoveFavoriteDto>) : Resource<MyResponse<AddOrRemoveFavoriteDto>> {
+    private fun handleDeleteFavorite(response: com.android.sivano.data.entities.shared.MyResponse<com.android.sivano.data.entities.favorite.AddOrRemoveFavoriteDto>) : Resource<com.android.sivano.data.entities.shared.MyResponse<com.android.sivano.data.entities.favorite.AddOrRemoveFavoriteDto>> {
         if (response.status) {
             response?.let { favResponse ->
                 return Resource.Success(favResponse)

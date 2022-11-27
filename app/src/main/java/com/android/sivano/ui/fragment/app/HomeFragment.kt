@@ -17,9 +17,9 @@ import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.databinding.FragmentHomeBinding
 import com.android.sivano.domin.model.Banner
 import com.android.sivano.domin.model.ProductsHomePage
-import com.android.sivano.entities.favorite.AddOrRemoveFavoriteDto
-import com.android.sivano.entities.shared.FavOrCartOtd
-import com.android.sivano.entities.shared.MyResponse
+import com.android.sivano.data.entities.favorite.AddOrRemoveFavoriteDto
+import com.android.sivano.data.entities.shared.FavOrCartOtd
+import com.android.sivano.data.entities.shared.MyResponse
 import com.android.sivano.ui.adabters.BannersAdapter
 import com.android.sivano.ui.adabters.CategoryRecyclerView
 import com.android.sivano.ui.adabters.ProductRecyclerView
@@ -44,7 +44,7 @@ class HomeFragment : Fragment() {
 
     @Inject
     lateinit var productRecyclerView: ProductRecyclerView
-    var favresponse: List<MyResponse<AddOrRemoveFavoriteDto>>? = null
+    var favresponse: List<com.android.sivano.data.entities.shared.MyResponse<com.android.sivano.data.entities.favorite.AddOrRemoveFavoriteDto>>? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         homeViewMode.homePage()
@@ -59,7 +59,7 @@ class HomeFragment : Fragment() {
 ////            )
 //        }
         productRecyclerView.setAddToCartClickListener { response ->
-            val fav = FavOrCartOtd(response.id)
+            val fav = com.android.sivano.data.entities.shared.FavOrCartOtd(response.id)
             homeViewMode.addToCart(fav)
             homeViewMode.addOrRemoveCartMutableLiveData.observe(viewLifecycleOwner) { response ->
                 if (response.data?.id != 0) {
@@ -70,7 +70,7 @@ class HomeFragment : Fragment() {
         }
         productRecyclerView.setOnImageHeartClickListener { response ->
             Log.e("response", "onViewCreated: $response")
-            var fav = FavOrCartOtd(response.id)
+            var fav = com.android.sivano.data.entities.shared.FavOrCartOtd(response.id)
             homeViewMode.addToFavorite(fav)
             homeViewMode.addFavoriteMutableLiveData.observe(viewLifecycleOwner) {
                 when (it) {

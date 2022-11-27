@@ -13,11 +13,11 @@ import com.android.sivano.R
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.databinding.FragmentSignInBinding
 import com.android.sivano.common.helpers.MyValidation
-import com.android.sivano.entities.auth.UserInfoDto
+import com.android.sivano.data.entities.auth.UserInfoDto
 import com.android.sivano.ui.viewmodel.AuthViewModel
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.common.uitil.toast
-import com.android.sivano.entities.auth.FcmTokenOtd
+import com.android.sivano.data.entities.auth.FcmTokenOtd
 import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.onEach
@@ -56,7 +56,11 @@ class SignInFragment : Fragment() {
                                     }
                                     FirebaseMessaging.getInstance().token.addOnSuccessListener {
                                         // FCM token send to to your server
-                                        authViewModel.fcmToken(FcmTokenOtd(it))
+                                        authViewModel.fcmToken(
+                                            com.android.sivano.data.entities.auth.FcmTokenOtd(
+                                                it
+                                            )
+                                        )
                                         authViewModel.fcmTokenSharedFlow.onEach {
                                             complexPreferences?.apply {
                                                 it.data?.let { it1 ->
@@ -104,7 +108,7 @@ class SignInFragment : Fragment() {
     }
     private fun login() {
         authViewModel.login(
-            UserInfoDto(
+            com.android.sivano.data.entities.auth.UserInfoDto(
                 email = binding.inputTextEmail.text.toString(),
                 password = binding.inputTextPassword.text.toString(),
                 phone = "12345678924",
