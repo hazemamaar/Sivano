@@ -4,12 +4,10 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.android.sivano.common.uitil.C
 import com.android.sivano.common.uitil.C.PREFERENCES_NAME
-import com.android.sivano.common.uitil.C.token
+import com.android.sivano.common.uitil.C.TOKEN
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.data.remote.ApiService
 import com.android.sivano.data.repo.AuthRepo
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -48,7 +46,7 @@ class AppModule {
             .addInterceptor { chain ->
                 val original: Request = chain.request()
                 val builder: Request.Builder = original.newBuilder()
-                val token = complexPreferences.getString(token, "")
+                val token = complexPreferences.getString(TOKEN, "")
                 val lang="en"
                 val newRequest = builder.apply {
 //                    addHeader("Accept", "application/json")

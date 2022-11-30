@@ -61,5 +61,13 @@
         android:id="@+id/profileFragment2"
         android:name="com.android.sivano.ui.fragment.account.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment2_to_successDialogFragment"
+            app:destination="@id/successDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/successDialogFragment"
+        android:name="com.android.sivano.ui.dialog.SuccessDialogFragment"
+        android:label="SuccessDialogFragment" />
 </navigation>

@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
+import com.android.sivano.R
 import com.android.sivano.databinding.DialogSuccssfulProfileBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -26,7 +28,9 @@ class SuccessDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.keepBrowsing.setOnClickListener{
+            findNavController().navigate(R.id.homeFragment)
+        }
     }
 
     override fun onCreateView(

@@ -41,7 +41,7 @@ interface ApiService {
     @GET("profile")
     suspend fun profile():MyResponse<ProfileDto>
     @PUT("update-profile")
-    suspend fun updateProfile(@Body userInfoDto: UserInfoDto): MyResponse<ProfileDto>
+    suspend fun updateProfile(@Body userInfoDto: UserInfoDto): MyResponse<UserResponse>
     @POST("change-password")
     suspend fun changePassword(@Body changePasswordOtd: ChangePasswordOtd): MyResponse<ChangePasswordResponseDto>
     @GET("products/{id}")

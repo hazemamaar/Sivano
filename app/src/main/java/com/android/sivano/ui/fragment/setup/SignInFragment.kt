@@ -13,11 +13,13 @@ import com.android.sivano.R
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.databinding.FragmentSignInBinding
 import com.android.sivano.common.helpers.MyValidation
-import com.android.sivano.data.entities.auth.UserInfoDto
+import com.android.sivano.common.uitil.C.FCM_TOKEN
+import com.android.sivano.common.uitil.C.TOKEN
+import com.android.sivano.common.uitil.C.USER
 import com.android.sivano.ui.viewmodel.AuthViewModel
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.common.uitil.toast
-import com.android.sivano.data.entities.auth.FcmTokenOtd
+import com.android.sivano.data.entities.auth.UserInfoDto
 import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.onEach
@@ -49,8 +51,8 @@ class SignInFragment : Fragment() {
                                  hideProgress()
                                 response.data?.let { newsResponse ->
                                     complexPreferences?.apply {
-                                        putString("token",newsResponse.token)
-                                        putObject("user",newsResponse)
+                                        putString(TOKEN,newsResponse.token)
+                                        putObject(USER,newsResponse)
                                         commit()
 
                                     }
@@ -65,7 +67,7 @@ class SignInFragment : Fragment() {
                                             complexPreferences?.apply {
                                                 it.data?.let { it1 ->
                                                     putString(
-                                                        "fcm_token",
+                                                        FCM_TOKEN,
                                                         it1.token
                                                     )
                                                 }
@@ -108,7 +110,7 @@ class SignInFragment : Fragment() {
     }
     private fun login() {
         authViewModel.login(
-            com.android.sivano.data.entities.auth.UserInfoDto(
+            UserInfoDto(
                 email = binding.inputTextEmail.text.toString(),
                 password = binding.inputTextPassword.text.toString(),
                 phone = "12345678924",
@@ -125,7 +127,4 @@ class SignInFragment : Fragment() {
         _binding = FragmentSignInBinding.inflate(inflater, container, false)
         return binding.root
     }
- fun generateTokenFcm(){
-
- }
 }

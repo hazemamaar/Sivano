@@ -9,6 +9,4 @@ data class User(
     val name: String,
     val phone: String,
     val token: String,
-    val points: Int,
-    val credit: Int,
 )

@@ -10,7 +10,7 @@ import com.android.sivano.data.entities.favorite.*
 import com.android.sivano.data.entities.homepage.*
 import com.android.sivano.data.entities.shared.*
 
-fun UserResponse.toUser(): User = User(email, id, image, name, phone, token, points, credit)
+fun UserResponse.toUser(): User = User(email, id, image, name, phone, token)
 fun AddOrRemoveCartDto.toAddCartResponse(): AddOrRemoveCartModel = AddOrRemoveCartModel(
     id,
     ProductCart(product.id, product.image, price = product.price),
