@@ -1,4 +1,4 @@
-# Android_Task
+# ShopApp (
 Simple Shop App used to show some products in the popular brands,
 
 # Screens
@@ -25,15 +25,15 @@ used
  # Screenshots
 
 <img src="https://user-images.githubusercontent.com/62269304/205658412-4c39906a-3d79-4ee5-9db4-d6129eeb9a1f.jpg" width="200">&nbsp;
-<img src="https://user-images.githubusercontent.com/67482991/182711549-78ea62b2-b505-4078-9c3b-63f04a3e1958.png" width="200">&nbsp;
-<img src="https://user-images.githubusercontent.com/67482991/182711553-e101c86d-e43c-4cd2-8a92-0052db861d53.png" width="200">&nbsp;
-<img src="https://user-images.githubusercontent.com/67482991/182711557-92dd040a-a95b-480f-9dda-b455a22bffe0.png" width="200">&nbsp;
-<img src="https://user-images.githubusercontent.com/67482991/182711562-56a905d7-1229-4b5b-8074-0ab407169e81.png" width="200">&nbsp;
-<img src="https://user-images.githubusercontent.com/67482991/182711572-596d7f6f-aefb-4fe2-923f-221d427861ea.png" width="200">&nbsp;
-<img src="https://user-images.githubusercontent.com/67482991/182711582-cbda39bc-89ea-4b98-8b1c-0ba010abf940.png" width="200">&nbsp;
-<img src="https://user-images.githubusercontent.com/67482991/182711587-cdf59d22-75fa-495d-b6e8-7cd5406174db.png" width="200">&nbsp;
-<img src="https://user-images.githubusercontent.com/67482991/182711590-702e622c-2722-4cf3-bb84-e28730c0cfe6.png" width="200">&nbsp;
-<img src="https://user-images.githubusercontent.com/67482991/182711968-31ee0ee3-8a17-4fe8-bc26-b8f3a454d392.png" width="200">&nbsp;
+<img src="https://user-images.githubusercontent.com/62269304/205659205-b6f39b76-6eda-4ded-bf32-5d14e06ec7a4.jpg" width="200">&nbsp;
+<img src="https://user-images.githubusercontent.com/62269304/205659307-bfa9a29a-1bb6-48a3-b79f-f6f7950d8b82.jpg" width="200">&nbsp;
+<img src="https://user-images.githubusercontent.com/62269304/205659325-7893143e-a906-41a2-99e3-53d93d7b5f2b.jpg" width="200">&nbsp;
+<img src="https://user-images.githubusercontent.com/62269304/205659337-79d4a18a-8396-4168-8167-0bd05b407d4f.jpg" width="200">&nbsp;
+<img src="https://user-images.githubusercontent.com/62269304/205659353-c450fab3-f752-401c-9e41-c77bf714635d.jpg" width="200">&nbsp;
+<img src="https://user-images.githubusercontent.com/62269304/205659377-ed72afa3-f3b1-43b2-bc6e-dc2ec94a803e.jpg" width="200">&nbsp;
+<img src="https://user-images.githubusercontent.com/62269304/205659386-859a2dd3-6361-4d79-b2d1-4577d03bdb91.jpg" width="200">&nbsp;
+<img src="https://user-images.githubusercontent.com/62269304/205659399-77851a3f-209a-43eb-be7f-104716030cf8.jpg" width="200">&nbsp;
+<img src="https://user-images.githubusercontent.com/62269304/205659415-26649689-6051-45a4-b2f1-63b897ef92b0.jpg" width="200">&nbsp;
 
 
 
