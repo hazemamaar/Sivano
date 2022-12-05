@@ -39,7 +39,6 @@ used
 
 * [Kotlin](https://kotlinlang.org) - As a programming language.
 * [Coroutines](https://developer.android.com/kotlin/coroutines) - For multithreading while handling requests to the server and local database.
-* [MVVM](https://developer.android.com/topic/architecture?gclid=Cj0KCQiAyracBhDoARIsACGFcS6DRtWKToHrJc19V3cl3BFPPRMOF9f-_EeDO99dpczWyZoWVIWz0cwaAibJEALw_wcB&gclsrc=aw.ds)- Offers an implementation of observer design pattern.
 * [Flow](https://developer.android.com/kotlin/flow) - In coroutines, a flow is a type that can emit multiple values sequentially, as opposed to suspend functions that return only a single value. For example, you can use a flow to receive live updates from a database.
 * [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started) - To handle app navigation.
 * [Sharedflow & StateFlow](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow) -To fire data
