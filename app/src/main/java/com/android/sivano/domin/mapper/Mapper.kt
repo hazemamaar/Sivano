@@ -37,9 +37,9 @@ fun CompleteProductDto.toProductsHomePage(): ProductsHomePage = ProductsHomePage
 fun CategoryModelResponseDto.toCategoryModel(): CategoryModel =
     CategoryModel(current_page, data.map { it.toCategoryItemModel() }, first_page_url)
 fun CategoriesDto.toCategoryItemModel(): CategoryItemModel = CategoryItemModel(id, image, name)
-fun GetAllPagesDto<FavoriteDataDto>.toGetAllFavorite(): GetAllFavorites<FavoriteData> =
-    GetAllFavorites<FavoriteData>(favoriteData = data.map { it.toFavoriteDate() })
-fun FavoriteDataDto.toFavoriteDate(): FavoriteData = FavoriteData(
+fun GetAllPagesDto.toGetAllFavorite(): GetAllFavorites =
+    GetAllFavorites(data.map { it.toFavoriteData() })
+fun FavoriteDataDto.toFavoriteData(): FavoriteData = FavoriteData(
     id,
     FavoriteAndCartProductModel(
         product.description,

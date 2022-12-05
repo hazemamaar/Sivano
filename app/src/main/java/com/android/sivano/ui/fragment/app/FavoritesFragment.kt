@@ -32,8 +32,8 @@ class FavoritesFragment : Fragment() {
         favViewModel.getFavorites()
         setUpFavoriteRecyclerView()
         favViewModel.favoriteMutableLiveData.observe(viewLifecycleOwner) {
-            if (it.data?.favoriteData != null && it.data.favoriteData.isNotEmpty()) {
-                favoriteRecyclerView.favoriteList = it.data.favoriteData
+            if (it.data?.data != null && it.data.data.isNotEmpty()) {
+                favoriteRecyclerView.favoriteList = it.data.data
             }
         }
     }

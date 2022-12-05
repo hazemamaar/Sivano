@@ -10,6 +10,7 @@ import android.view.*
 import com.android.sivano.R
 import com.android.sivano.databinding.DialogItemSeeDetailsBinding
 import com.android.sivano.data.entities.homepage.CompleteProductDto
+import com.android.sivano.domin.model.ProductsHomePage
 import com.android.sivano.ui.adabters.ViewPagerImageDetails
 
 
@@ -17,7 +18,7 @@ object CustomDialog {
 
     fun  showDialogDetails(
         context: Context,
-        product: com.android.sivano.data.entities.homepage.CompleteProductDto,
+        product: ProductsHomePage,
 
         ) {
 

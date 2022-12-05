@@ -20,7 +20,7 @@
         />
 
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/accountFragment"
         android:enabled="true"
         android:title="Profile"
         android:icon="@drawable/user"

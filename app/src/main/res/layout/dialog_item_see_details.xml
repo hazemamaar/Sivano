@@ -215,6 +215,10 @@
     <!--        android:src="@drawable/ic_baseline_close_24"-->
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+
+
+
     <ImageView
         android:id="@+id/back_icon"
         android:layout_width="wrap_content"
@@ -335,7 +339,7 @@
         android:includeFontPadding="false"
         android:lineSpacingExtra="@dimen/_2sdp"
         android:maxLines="2"
-        android:textColor="@color/gray_white"
+        android:textColor="@color/black"
         android:textSize="@dimen/_12ssp"
         app:layout_constraintTop_toBottomOf="@id/cicrle_view_support" />
 

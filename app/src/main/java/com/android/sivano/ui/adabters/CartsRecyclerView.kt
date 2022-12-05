@@ -2,6 +2,7 @@ package com.android.sivano.ui.adabters
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,8 +56,21 @@ class CartsRecyclerView @Inject constructor(
           }).into(binding.productImage)
           binding.productTitle.text=item.product.name
           binding.itemCartMount.text=item.quantity.toString()
+          binding.price.text=item.product.price.toString()
 
-              binding.price.text=item.product.price.toString()
+          binding.add.setOnClickListener {
+              val afterMin=binding.itemCartMount.text.toString().toInt() +1
+              binding.itemCartMount.text= afterMin.toString()
+          }
+          binding.minTotCart.setOnClickListener {
+              val afterMin=binding.itemCartMount.text.toString().toInt() -1
+              binding.itemCartMount.text= afterMin.toString()
+          }
+          binding.removeImg.setOnClickListener {
+              onRemoveClickListener.let {
+                  onRemoveClickListener?.let { it(item.id) }
+              }
+          }
       }
     }
 
@@ -83,7 +97,9 @@ class CartsRecyclerView @Inject constructor(
         )
     }
     private var onItemClickListener: ((CartItem) -> Unit)? = null
-
+    private var onAddClickListener: ((CartItem) -> Unit)? = null
+    private var onMinClickListener: ((CartItem) -> Unit)? = null
+    private var onRemoveClickListener : ((Int) -> Unit)? = null
     override fun onBindViewHolder(holder: CartsViewHolder, position: Int) {
         val cart = cartList[position]
         holder.apply {
@@ -95,5 +111,14 @@ class CartsRecyclerView @Inject constructor(
 
     fun setOnItemClickListener(listener: (CartItem) -> Unit) {
         onItemClickListener = listener
+    }
+    fun setOnMinClickListener(listener: (CartItem) -> Unit) {
+        onMinClickListener = listener
+    }
+    fun setOnAddClickListener(listener: (CartItem) -> Unit) {
+        onAddClickListener = listener
+    }
+    fun setOnRemoveClickListener(listener: (Int) -> Unit) {
+        onRemoveClickListener = listener
     }
 }

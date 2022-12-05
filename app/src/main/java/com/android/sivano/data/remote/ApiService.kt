@@ -27,7 +27,7 @@ interface ApiService {
     @POST("favorites")
     suspend fun addOrRemoveFavorite(@Body fav:FavOrCartOtd): MyResponse<AddOrRemoveFavoriteDto>
     @GET("favorites")
-    suspend fun getFavorites(): MyResponse<GetAllPagesDto<FavoriteDataDto>>
+    suspend fun getFavorites(): MyResponse<FavTest>
     @DELETE("favorites/{id}")
     suspend fun deleteFromFavorite(@Path("id") id:Int):MyResponse<AddOrRemoveFavoriteDto>
     @POST("carts")
@@ -46,8 +46,8 @@ interface ApiService {
     suspend fun changePassword(@Body changePasswordOtd: ChangePasswordOtd): MyResponse<ChangePasswordResponseDto>
     @GET("products/{id}")
     suspend fun getProduct(@Path("id") id: Int): MyResponse<CompleteProductDto>
-    @POST("products/search")
-    suspend fun searchProduct(otd: SearchProductOtd):MyResponse<GetAllPagesDto<GetFavoriteOrCartProductDto>>
+//    @POST("products/search")
+//    suspend fun searchProduct(otd: SearchProductOtd):MyResponse<GetAllPagesDto<GetFavoriteOrCartProductDto>>
     @DELETE("carts/{id}")
     suspend fun deleteFromCart(@Path("id") id:Int): MyResponse<UpdateOrDeleteCartItemDto>
     @PUT("carts/{id}")

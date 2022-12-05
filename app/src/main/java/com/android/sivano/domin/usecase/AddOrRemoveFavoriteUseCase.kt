@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class AddOrRemoveFavoriteUseCase @Inject constructor(val defaultRepo: DefaultRepo) {
-    operator fun invoke(fav: com.android.sivano.data.entities.shared.FavOrCartOtd): Flow<Resource<AddOrRemoveFavorite>> =flow{
+    operator fun invoke(fav: FavOrCartOtd): Flow<Resource<AddOrRemoveFavorite>> =flow{
          emit(Resource.Loading())
         try {
             val favoriteModel=defaultRepo.addOrRemoveFavorite(fav)

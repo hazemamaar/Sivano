@@ -14,7 +14,6 @@ import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.databinding.FragmentAccountBinding
 import com.android.sivano.ui.viewmodel.AccountViewModel
 import com.bumptech.glide.Glide
-import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -36,7 +35,7 @@ class AccountFragment : Fragment() {
         //action_profileFragment_to_profileFragment2
         profile()
         binding.goToProfile.setOnClickListener{
-            findNavController().navigate(R.id.action_profileFragment_to_profileFragment2)
+            findNavController().navigate(R.id.action_accountFragment_to_profileFragment)
         }
     }
 

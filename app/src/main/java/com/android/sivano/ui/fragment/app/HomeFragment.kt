@@ -5,9 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.android.sivano.R
@@ -23,6 +25,7 @@ import com.android.sivano.data.entities.shared.MyResponse
 import com.android.sivano.ui.adabters.BannersAdapter
 import com.android.sivano.ui.adabters.CategoryRecyclerView
 import com.android.sivano.ui.adabters.ProductRecyclerView
+import com.android.sivano.ui.dialog.CustomDialog
 import com.android.sivano.ui.viewmodel.HomePageViewModel
 import com.zhpan.indicator.enums.IndicatorSlideMode
 import com.zhpan.indicator.enums.IndicatorStyle
@@ -51,19 +54,18 @@ class HomeFragment : Fragment() {
         homeViewMode.categories()
         getProduct()
         getCategories()
-//        productRecyclerView.setOnButtonSeeDetailsClickListener { response ->
-//            CustomDialog.showDialogDetails(requireContext(), response)
-////            val bundle = bundleOf("product" to response)
-////            findNavController().navigate(
-////                R.id.action_homeFragment_to_seeDetailsProduct, bundle
-////            )
-//        }
+        productRecyclerView.setOnButtonSeeDetailsClickListener { response ->
+            CustomDialog.showDialogDetails(requireContext(), response)
+//            val bundle = bundleOf("product" to response)
+
+
+        }
         productRecyclerView.setAddToCartClickListener { response ->
             val fav = com.android.sivano.data.entities.shared.FavOrCartOtd(response.id)
             homeViewMode.addToCart(fav)
             homeViewMode.addOrRemoveCartMutableLiveData.observe(viewLifecycleOwner) { response ->
                 if (response.data?.id != 0) {
-                    toast("Done Add To Cart")
+                    toast("done added")
                 }
             }
 

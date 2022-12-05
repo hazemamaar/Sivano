@@ -66,23 +66,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/item_restaurant_food_placholder" />
+            <include layout="@layout/item_cart_placholder" />
 
-            <include layout="@layout/item_restaurant_food_placholder" />
+            <include layout="@layout/item_cart_placholder" />
 
-            <include layout="@layout/item_restaurant_food_placholder" />
+            <include layout="@layout/item_cart_placholder" />
 
-            <include layout="@layout/item_restaurant_food_placholder" />
+            <include layout="@layout/item_cart_placholder" />
 
-            <include layout="@layout/item_restaurant_food_placholder" />
+            <include layout="@layout/item_cart_placholder" />
 
-            <include layout="@layout/item_restaurant_food_placholder" />
+            <include layout="@layout/item_cart_placholder" />
 
-            <include layout="@layout/item_restaurant_food_placholder" />
+            <include layout="@layout/item_cart_placholder" />
 
-            <include layout="@layout/item_restaurant_food_placholder" />
+            <include layout="@layout/item_cart_placholder" />
 
-            <include layout="@layout/item_restaurant_food_placholder" />
+            <include layout="@layout/item_cart_placholder" />
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
     <TextView

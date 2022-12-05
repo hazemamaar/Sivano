@@ -18,6 +18,12 @@
         <action
             android:id="@+id/action_homeFragment_to_seeDetailsProduct"
             app:destination="@id/seeDetailsProduct" />
+        <action
+            android:id="@+id/action_homeFragment_to_successfullyAddtoCart"
+            app:destination="@id/successfullyAddtoCart" />
+        <action
+            android:id="@+id/action_homeFragment_to_successfullyProfileDialog"
+            app:destination="@id/successfullyProfileDialog" />
     </fragment>
     <fragment
         android:id="@+id/categoryFragment"
@@ -32,21 +38,18 @@
         <action
             android:id="@+id/action_cartFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_orderesFragmentFragment"
+            app:destination="@id/orderesFragmentFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_successfullyAddtoCart"
+            app:destination="@id/successfullyAddtoCart" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.android.sivano.ui.fragment.app.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.android.sivano.ui.fragment.account.AccountFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_account" >
-        <action
-            android:id="@+id/action_profileFragment_to_profileFragment2"
-            app:destination="@id/profileFragment2" />
-    </fragment>
     <fragment
         android:id="@+id/seeDetailsProduct"
         android:label="fragment_see_details_product"
@@ -58,16 +61,51 @@
         android:name="com.android.sivano.ui.fragment.app.MapsFragment"
         android:label="MapsFragment" />
     <fragment
-        android:id="@+id/profileFragment2"
+        android:id="@+id/accountFragment"
+        android:name="com.android.sivano.ui.fragment.account.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.android.sivano.ui.fragment.account.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" >
+        <action
+            android:id="@+id/action_changePasswordFragment_to_successfullyProfileDialog"
+            app:destination="@id/successfullyProfileDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
         android:name="com.android.sivano.ui.fragment.account.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
-            android:id="@+id/action_profileFragment2_to_successDialogFragment"
-            app:destination="@id/successDialogFragment" />
+            android:id="@+id/action_profileFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_successfullyProfileDialog"
+            app:destination="@id/successfullyProfileDialog" />
     </fragment>
     <dialog
-        android:id="@+id/successDialogFragment"
-        android:name="com.android.sivano.ui.dialog.SuccessDialogFragment"
-        android:label="SuccessDialogFragment" />
+        android:id="@+id/successfullyProfileDialog"
+        android:name="com.android.sivano.ui.dialog.SuccessfullyProfileDialog"
+        android:label="successfully_profile_dialog"
+        tools:layout="@layout/successfully_profile_dialog" />
+    <fragment
+        android:id="@+id/orderesFragmentFragment"
+        android:name="com.android.sivano.ui.fragment.app.OrderesFragmentFragment"
+        android:label="fragment_orders"
+        tools:layout="@layout/fragment_orders" >
+        <action
+            android:id="@+id/action_orderesFragmentFragment_to_successfullyAddtoCart"
+            app:destination="@id/successfullyAddtoCart" />
+    </fragment>
+    <dialog
+        android:id="@+id/successfullyAddtoCart"
+        android:name="com.android.sivano.ui.dialog.SuccessfullyAddtoCart"
+        android:label="SuccessfullyAddtoCart" />
 </navigation>

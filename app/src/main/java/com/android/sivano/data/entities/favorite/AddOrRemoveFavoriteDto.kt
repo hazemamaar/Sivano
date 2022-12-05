@@ -4,5 +4,5 @@ import com.android.sivano.data.entities.shared.CartOrFavoriteProductDto
 
 data class AddOrRemoveFavoriteDto(
     val id: Int,
-    val product: com.android.sivano.data.entities.shared.CartOrFavoriteProductDto
+    val product: CartOrFavoriteProductDto
 )

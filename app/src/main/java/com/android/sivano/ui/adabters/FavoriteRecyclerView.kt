@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.sivano.R
+import com.android.sivano.data.entities.favorite.Data
 import com.android.sivano.domin.model.FavoriteData
 import com.bumptech.glide.Glide
 import com.google.android.material.button.MaterialButton
@@ -27,16 +28,16 @@ class FavoriteRecyclerView @Inject constructor(): RecyclerView.Adapter<FavoriteR
         var btnAddToCart = itemView.findViewById<MaterialButton>(R.id.add_cart_btn)
         var imageheart = itemView.findViewById<ImageView>(R.id.heartImg)
     }
-    var favoriteList: List<FavoriteData>
+    var favoriteList: List<Data>
         get() = differ.currentList
         set(value) = differ.submitList(value)
 
-    private val differCallBack = object : DiffUtil.ItemCallback<FavoriteData>() {
-        override fun areItemsTheSame(oldItem: FavoriteData, newItem: FavoriteData): Boolean {
+    private val differCallBack = object : DiffUtil.ItemCallback<Data>() {
+        override fun areItemsTheSame(oldItem: Data, newItem: Data): Boolean {
             return oldItem.hashCode() == newItem.hashCode()
         }
 
-        override fun areContentsTheSame(oldItem: FavoriteData, newItem: FavoriteData): Boolean {
+        override fun areContentsTheSame(oldItem: Data, newItem: Data): Boolean {
             return oldItem == newItem
         }
     }
@@ -52,7 +53,7 @@ class FavoriteRecyclerView @Inject constructor(): RecyclerView.Adapter<FavoriteR
         )
     }
 
-    private var onItemClickListener: ((FavoriteData) -> Unit)? = null
+    private var onItemClickListener: ((Data) -> Unit)? = null
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         val favorite = favoriteList[position]
@@ -68,7 +69,7 @@ class FavoriteRecyclerView @Inject constructor(): RecyclerView.Adapter<FavoriteR
     }
     override fun getItemCount() = favoriteList.size
 
-    fun setOnItemClickListener(listener: (FavoriteData) -> Unit) {
+    fun setOnItemClickListener(listener: (Data) -> Unit) {
         onItemClickListener = listener
     }
 }

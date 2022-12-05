@@ -13,6 +13,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.sivano.R
+import com.android.sivano.common.uitil.toast
+import com.android.sivano.data.entities.cart.UpdateCartsOtd
 import com.android.sivano.databinding.FragmentCartBinding
 import com.android.sivano.databinding.FragmentFavoritesBinding
 import com.android.sivano.ui.adabters.CartsRecyclerView
@@ -23,6 +25,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
+import kotlin.math.log
 
 @AndroidEntryPoint
 class CartFragment : Fragment() {
@@ -34,7 +37,7 @@ class CartFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        cartViewModel.getAllCarts()
+
         setUpCartRecyclerView()
 //        cartViewModel.cartsMutableLiveData.observe(viewLifecycleOwner, Observer {
 //            if (it.data?.cart_items != null && it.data.cart_items.isNotEmpty()) {
@@ -46,19 +49,32 @@ class CartFragment : Fragment() {
 //        })
 
         binding.back.setOnClickListener {
-            findNavController().navigate(R.id.action_cartFragment_to_mapsFragment)
+            findNavController().popBackStack()
 
         }
-            cartViewModel.cardSharedFlow.onEach {
-                if (it.data?.cart_items != null && it.data.cart_items.isNotEmpty()) {
-                    Log.e("getshared", "onViewCreated: "+it.data.toString() )
-                    binding.shimmer.visibility=View.GONE
-                    cartsRecyclerView.cartList=it.data?.cart_items!!
-                }
-                binding.valueSubTotal.text = "${it.data?.sub_total?.toInt()}EGP"
-                binding.valueTotal.text = "${it.data?.total?.toInt()}EGP"
-            }.launchIn(lifecycleScope)
+        getAllCarts()
+       cartsRecyclerView.setOnAddClickListener {
+           Log.e("donefrag", "bind: done" )
+       }
+        cartsRecyclerView.setOnRemoveClickListener {
+            Log.e("hazz", "onViewCreated:$it ", )
+            cartViewModel.deleteCart(it)
+            cartViewModel.deleteCartSharedFlow.onEach {
+                Log.e("hazz", "onViewCreated:${it.data?.cart?.id} ", )
+                if(it.data != null)
+                      toast("done")
 
+            }.launchIn(lifecycleScope)
+        }
+        binding.checkOutBtn.setOnClickListener {
+
+//            cartViewModel.updateCart(it.id, UpdateCartsOtd( quantity))
+//            cartViewModel.updateCartSharedFlow.onEach {
+//                toast("done")
+//                cartsRecyclerView.notifyDataSetChanged()
+//            }.launchIn(lifecycleScope)
+            findNavController().navigate(R.id.action_cartFragment_to_orderesFragmentFragment)
+        }
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,5 +90,17 @@ class CartFragment : Fragment() {
             layoutManager = LinearLayoutManager(activity)
             //  addOnScrollListener(this@BreakingNewsFragment.scrollListener)
         }
+    }
+    fun getAllCarts(){
+        cartViewModel.getAllCarts()
+        cartViewModel.cardSharedFlow.onEach {
+            if (it.data?.cart_items != null && it.data.cart_items.isNotEmpty()) {
+                Log.e("getshared", "onViewCreated: "+it.data.toString() )
+                binding.shimmer.visibility=View.GONE
+                cartsRecyclerView.cartList=it.data?.cart_items!!
+            }
+            binding.valueSubTotal.text = "EGP${it.data?.sub_total?.toInt()}"
+            binding.valueTotal.text = "EGP${it.data?.total?.toInt()}"
+        }.launchIn(lifecycleScope)
     }
 }

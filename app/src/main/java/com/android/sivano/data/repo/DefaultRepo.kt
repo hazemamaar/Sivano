@@ -24,7 +24,7 @@ class DefaultRepo @Inject constructor(private val apiService: ApiService) {
     suspend fun updateProfile(userInfoDto:UserInfoDto)=apiService.updateProfile(userInfoDto)
     suspend fun changePassword(changePasswordOtd: ChangePasswordOtd)=apiService.changePassword(changePasswordOtd)
     suspend fun getProduct(id: Int)=apiService.getProduct(id)
-    suspend fun searchProduct(searchProductOtd: SearchProductOtd)=apiService.searchProduct(searchProductOtd)
+//    suspend fun searchProduct(searchProductOtd: SearchProductOtd)=apiService.searchProduct(searchProductOtd)
     suspend fun deleteFromCart(id: Int)=apiService.deleteFromCart(id)
     suspend fun updateCart(id: Int,updateCartsOtd: UpdateCartsOtd)=apiService.updateCart(id,updateCartsOtd)
 

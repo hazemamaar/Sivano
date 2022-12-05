@@ -1,5 +1,6 @@
 package com.android.sivano.ui.fragment.setup
 
+import android.location.Location
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.android.sivano.R
+import com.android.sivano.common.helpers.MyLocation
 import com.android.sivano.data.local.ComplexPreferences
 import com.android.sivano.databinding.FragmentSignInBinding
 import com.android.sivano.common.helpers.MyValidation
@@ -20,6 +22,8 @@ import com.android.sivano.ui.viewmodel.AuthViewModel
 import com.android.sivano.common.uitil.Resource
 import com.android.sivano.common.uitil.toast
 import com.android.sivano.data.entities.auth.UserInfoDto
+import com.android.sivano.domin.model.UserInfoDB
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.onEach
@@ -31,15 +35,27 @@ class SignInFragment : Fragment() {
     private val binding get() = _binding
     private val authViewModel: AuthViewModel by viewModels()
     var tok:String="null"
+    private var latLong: LatLng?=null
+    private lateinit var locationResult: MyLocation.LocationResult
+    private val myLocation by lazy {   MyLocation()}
     @Inject
     lateinit var complexPreferences: ComplexPreferences
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        locationResult = object : MyLocation.LocationResult() {
+            override fun gotLocation(location: Location?) {
+                Log.i("location", "gotLocation: ${location.toString()}")
+                location?.let {
+                    latLong= LatLng(it.latitude,it.longitude)
+                }
+            }
+        }
+
         binding.signinBtn.setOnClickListener(View.OnClickListener {
 
             if (!MyValidation.isValidEmail(binding.inputTextEmail.text.toString())) {
                 toast("Please Check Your Email")
-            } else if (binding.inputTextPassword.text.toString().length <= 7) {
+            } else if (binding.inputTextPassword.text.toString().length <= 5) {
                 toast("please Check your Password")
             } else {
                 login()
@@ -99,7 +115,7 @@ class SignInFragment : Fragment() {
                         }
                     })
             }
-      //     findNavController().navigate(R.id.action_signInFragment_to_defaultActivity2)
+
         })
     }
    fun showProgress(){

@@ -38,11 +38,11 @@
 
                 />
             <com.facebook.shimmer.ShimmerFrameLayout
-                android:layout_width="@dimen/_80sdp"
-                android:layout_height="@dimen/_80sdp"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_110sdp"
                 app:shimmer_auto_start="true"
                 app:shimmer_duration="800"
-                android:layout_margin="@dimen/_3sdp"
+                android:layout_marginStart="@dimen/_15sdp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -144,10 +144,10 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical|center_horizontal"
                     android:src="@drawable/plus"
-
                     />
 
             </LinearLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
