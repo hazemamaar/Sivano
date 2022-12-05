@@ -1,12 +1,7 @@
-# ShopApp (
-Simple Shop App used to show some products in the popular brands,
+# ShopApp 
+Online Shopping App that uses Student API to buy and
+display products in the popular brands,
 
-# Screens
-1- Login Screen
-2- Register screen 
-3- HomeScreen
-4- Popup dialog view to show details product
-  
 
 ## technology 
 used 
@@ -18,7 +13,7 @@ used
 - clean architecture and clean code
 - navigation components
 - shared preferences 
-- MVI (Model-View-Intent) based on MVVM
+- MVVM (Model-View-View-Model) 
 - and more..
 
 
