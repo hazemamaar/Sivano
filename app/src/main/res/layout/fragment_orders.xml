@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.app.OrderesFragmentFragment">
+    <TextView
+        android:id="@+id/my_checkout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Check Out"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        />
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:src="@drawable/backicon"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/_7sdp"
+        />
+    <ImageView
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layerType="software"
+        android:src="@drawable/line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_checkout" />
+    <TextView
+        android:id="@+id/delivery_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line1"
+        android:fontFamily="@font/poppins_medium"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:text="Delivery Address"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15sdp"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/delivery_txt"
+        android:id="@+id/containerAddress"
+        android:layout_marginTop="@dimen/_15sdp">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="@dimen/_58sdp"
+            android:layout_height="@dimen/_48sdp"
+           android:layout_margin="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/map"
+            android:id="@+id/map_image"
+
+            />
+        <TextView
+            android:id="@+id/deliver_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/map_image"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="Deliver To : "
+            android:textSize="@dimen/_14ssp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/deliver_to"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Beni Suef"
+            android:textSize="@dimen/_14ssp"
+            />
+        <ImageView
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:src="@drawable/toimage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/map_image"
+            app:layout_constraintTop_toBottomOf="@id/deliver_to"
+            android:textColor="@color/brown_a"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:text="Beba,beba"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textSize="@dimen/_12ssp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/payment_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerAddress"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:text="Payment Method"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        android:fontFamily="@font/poppins"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_10sdp"
+
+        />
+
+
+    <RadioGroup
+        android:id="@+id/payment_RadioGroup"
+        android:checkedButton="@+id/radio_button_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/payment_txt"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_15sdp"
+
+        >
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/credit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_radio_backgroung"
+            android:layoutDirection="rtl"
+            android:padding="@dimen/_16sdp"
+            android:text="Credit Card"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+
+            />
+
+        <RadioButton
+            android:id="@+id/visa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_radio_backgroung"
+            android:layoutDirection="rtl"
+            android:padding="@dimen/_16sdp"
+            android:text="Visa"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+
+            />
+        <RadioButton
+            android:id="@+id/PayPal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_radio_backgroung"
+            android:layoutDirection="rtl"
+            android:padding="@dimen/_16sdp"
+            android:text="PayPal"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+
+            />
+        <RadioButton
+            android:id="@+id/radio_button_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_radio_backgroung"
+            android:layoutDirection="rtl"
+            android:padding="@dimen/_16sdp"
+            android:text="ebay"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
+
+            />
+    </RadioGroup>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pay_btn"
+        style="@style/button_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:padding="@dimen/_11sdp"
+        android:text="Pay"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintTop_toBottomOf="@id/payment_RadioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/_15sdp"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
